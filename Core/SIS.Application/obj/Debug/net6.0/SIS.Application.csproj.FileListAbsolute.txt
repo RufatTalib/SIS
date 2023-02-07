@@ -1,0 +1,15 @@
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\bin\Debug\net6.0\SIS.Application.deps.json
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\bin\Debug\net6.0\SIS.Application.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\bin\Debug\net6.0\SIS.Application.pdb
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\bin\Debug\net6.0\SIS.Domain.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\bin\Debug\net6.0\SIS.Domain.pdb
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.AssemblyInfo.cs
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.csproj.CopyComplete
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\refint\SIS.Application.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\SIS.Application.pdb
+C:\Users\PC\source\repos\SIS\Core\SIS.Application\obj\Debug\net6.0\ref\SIS.Application.dll

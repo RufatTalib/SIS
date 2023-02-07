@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "8nRYnS5CxBUejMifb2kgtHn3NQ1iGIFSEOUPqQZJyq0=",
+  "Source": "SIS.MVC",
+  "BasePath": "_content/SIS.MVC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SIS.MVC\\wwwroot",
+      "Source": "SIS.MVC",
+      "ContentRoot": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\",
+      "BasePath": "_content/SIS.MVC",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

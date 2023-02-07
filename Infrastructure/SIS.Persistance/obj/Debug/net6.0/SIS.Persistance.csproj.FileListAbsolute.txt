@@ -1,0 +1,17 @@
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Persistance.deps.json
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Persistance.dll
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Persistance.pdb
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Application.dll
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Domain.dll
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Application.pdb
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Domain.pdb
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.AssemblyInfo.cs
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.csproj.CopyComplete
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.dll
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\refint\SIS.Persistance.dll
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.pdb
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\ref\SIS.Persistance.dll

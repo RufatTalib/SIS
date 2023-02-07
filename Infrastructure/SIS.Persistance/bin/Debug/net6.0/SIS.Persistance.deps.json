@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SIS.Persistance/1.0.0": {
+        "dependencies": {
+          "SIS.Application": "1.0.0"
+        },
+        "runtime": {
+          "SIS.Persistance.dll": {}
+        }
+      },
+      "SIS.Application/1.0.0": {
+        "dependencies": {
+          "SIS.Domain": "1.0.0"
+        },
+        "runtime": {
+          "SIS.Application.dll": {}
+        }
+      },
+      "SIS.Domain/1.0.0": {
+        "runtime": {
+          "SIS.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SIS.Persistance/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SIS.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SIS.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

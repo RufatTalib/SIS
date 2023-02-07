@@ -1,0 +1,12 @@
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\bin\Debug\net6.0\SIS.Domain.deps.json
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\bin\Debug\net6.0\SIS.Domain.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\bin\Debug\net6.0\SIS.Domain.pdb
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.AssemblyInfo.cs
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\refint\SIS.Domain.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.pdb
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\ref\SIS.Domain.dll
