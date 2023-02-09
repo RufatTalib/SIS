@@ -10,3 +10,5 @@ C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.dll
 C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\refint\SIS.Domain.dll
 C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.pdb
 C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\ref\SIS.Domain.dll
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\bin\Debug\net6.0\SIS.Domain.runtimeconfig.json
+C:\Users\PC\source\repos\SIS\Core\SIS.Domain\obj\Debug\net6.0\SIS.Domain.genruntimeconfig.cache
