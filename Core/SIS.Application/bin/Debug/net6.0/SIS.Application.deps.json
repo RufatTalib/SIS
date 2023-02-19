@@ -16,7 +16,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.13",
-          "SIS.Domain": "1.0.0"
+          "SIS.Domain": "1.0.0",
+          "SIS.Infrastructure": "1.0.0"
         },
         "runtime": {
           "SIS.Application.dll": {}
@@ -567,11 +568,22 @@
       },
       "SIS.Domain/1.0.0": {
         "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
         },
         "runtime": {
           "SIS.Domain.dll": {}
+        }
+      },
+      "SIS.Infrastructure/1.0.0": {
+        "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
+        },
+        "runtime": {
+          "SIS.Infrastructure.dll": {}
         }
       }
     }
@@ -961,6 +973,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "SIS.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SIS.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

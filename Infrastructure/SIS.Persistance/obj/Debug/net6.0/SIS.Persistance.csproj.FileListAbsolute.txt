@@ -17,3 +17,5 @@ C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\ref\SIS.Persistance.dll
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Persistance.runtimeconfig.json
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\obj\Debug\net6.0\SIS.Persistance.genruntimeconfig.cache
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Infrastructure.dll
+C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Persistance\bin\Debug\net6.0\SIS.Infrastructure.pdb

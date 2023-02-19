@@ -1,0 +1,103 @@
+﻿@using SIS.Application.Features.Queries.Admin.GetAll;
+@using SIS.Domain.Entities;
+
+@model GetAllAdminQueryResponse
+
+<div class="page-wrapper">
+	<div class="content container-fluid">
+
+		<div class="page-header">
+			<div class="row align-items-center">
+				<div class="col">
+					<h3 class="page-title">Admins</h3>
+					<ul class="breadcrumb">
+						<li><a href="index.html">Dashboard</a></li>
+						<span class="mx-2">/</span>
+						<li class="active">Admins</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="student-group-form">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search by ID ...">
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search by Name ...">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search by Phone ...">
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="search-student-btn">
+						<button type="btn" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card card-table">
+					<div class="card-body">
+
+						<div class="page-header">
+							<div class="row align-items-center">
+								<div class="col">
+									<h3 class="page-title">Admins</h3>
+								</div>
+								<div class="col-auto text-end float-end ms-auto download-grp">
+									<a asp-action="index" class="btn btn-outline-gray me-2"><i class="feather-list"></i></a>
+									<a asp-action="indexgrid" class="btn btn-outline-gray me-2 active"><i class="feather-grid"></i></a>
+									<a asp-action="download" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+									<a asp-action="create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+								</div>
+							</div>
+						</div>
+
+
+                        <div class="student-pro-list">
+                            <div class="row">
+                                @foreach(AppUser user in Model.Admins)
+								{
+									<div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+										<div class="card">
+											<div class="card-body">
+												<div class="student-box flex-fill">
+													<div class="student-img">
+														<a asp-action="detail" asp-route-id="@user.Id">
+															<img class="img-fluid" alt="Students Info" src="~/ProfilePhotos/@user.ImageSrc">
+														</a>
+													</div>
+													<div class="student-content pb-0">
+														<h5><a href="teacher-details.html">@user.FirstName @user.LastName</a></h5>
+														<h6>@user.IdentityRoleName</h6>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								}
+							</div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer>
+		<p>Copyright © 2022 Dreamguys.</p>
+	</footer>
+
+</div>
+

@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8974A0A9-6174-4C97-AD9F-8315E02BC246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.Domain", "Core\SIS.Domain\SIS.Domain.csproj", "{02519FD9-0BC8-4BAB-99B8-19B93F63A1F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.Domain", "Core\SIS.Domain\SIS.Domain.csproj", "{02519FD9-0BC8-4BAB-99B8-19B93F63A1F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.Application", "Core\SIS.Application\SIS.Application.csproj", "{73E37A12-47F2-42F4-A39B-FD09C4986D49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.Application", "Core\SIS.Application\SIS.Application.csproj", "{73E37A12-47F2-42F4-A39B-FD09C4986D49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.Infrastructure", "Infrastructure\SIS.Infrastructure\SIS.Infrastructure.csproj", "{444D4DFF-F046-4BB6-BFD7-0F9A455F4D18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.Infrastructure", "Infrastructure\SIS.Infrastructure\SIS.Infrastructure.csproj", "{444D4DFF-F046-4BB6-BFD7-0F9A455F4D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.Persistance", "Infrastructure\SIS.Persistance\SIS.Persistance.csproj", "{B15163F5-3B21-4B48-8A78-DE290B5D59F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.Persistance", "Infrastructure\SIS.Persistance\SIS.Persistance.csproj", "{B15163F5-3B21-4B48-8A78-DE290B5D59F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS.MVC", "Presentation\SIS.MVC\SIS.MVC.csproj", "{BBC242A9-7F4B-4EBC-98E2-DB3221160C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS.MVC", "Presentation\SIS.MVC\SIS.MVC.csproj", "{BBC242A9-7F4B-4EBC-98E2-DB3221160C7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

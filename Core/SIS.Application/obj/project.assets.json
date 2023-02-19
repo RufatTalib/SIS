@@ -961,6 +961,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
         },
@@ -969,6 +970,21 @@
         },
         "runtime": {
           "bin/placeholder/SIS.Domain.dll": {}
+        }
+      },
+      "SIS.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
+        },
+        "compile": {
+          "bin/placeholder/SIS.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SIS.Infrastructure.dll": {}
         }
       }
     }
@@ -2389,6 +2405,11 @@
       "type": "project",
       "path": "../SIS.Domain/SIS.Domain.csproj",
       "msbuildProject": "../SIS.Domain/SIS.Domain.csproj"
+    },
+    "SIS.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/SIS.Infrastructure/SIS.Infrastructure.csproj",
+      "msbuildProject": "../../Infrastructure/SIS.Infrastructure/SIS.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2401,7 +2422,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.13",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.13",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.13",
-      "SIS.Domain >= 1.0.0"
+      "SIS.Domain >= 1.0.0",
+      "SIS.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2433,6 +2455,9 @@
           "projectReferences": {
             "C:\\Users\\PC\\source\\repos\\SIS\\Core\\SIS.Domain\\SIS.Domain.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\SIS\\Core\\SIS.Domain\\SIS.Domain.csproj"
+            },
+            "C:\\Users\\PC\\source\\repos\\SIS\\Infrastructure\\SIS.Infrastructure\\SIS.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\PC\\source\\repos\\SIS\\Infrastructure\\SIS.Infrastructure\\SIS.Infrastructure.csproj"
             }
           }
         }

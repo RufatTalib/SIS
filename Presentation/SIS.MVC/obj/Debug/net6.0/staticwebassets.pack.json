@@ -1,6 +1,22 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\0b73716c-7452-4528-8c7c-a5e9581c96d1avatar-17.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\0b73716c-7452-4528-8c7c-a5e9581c96d1avatar-17.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\bc1ee68d-c940-43e3-bd43-e6eca075d9b0avatar-10.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\bc1ee68d-c940-43e3-bd43-e6eca075d9b0avatar-10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\bc9daecd-9027-46d1-be55-bb2afb7b09b2avatar-14.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\bc9daecd-9027-46d1-be55-bb2afb7b09b2avatar-14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\d106a708-a9f2-4cd6-b9a8-68b252147442avatar-14.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\d106a708-a9f2-4cd6-b9a8-68b252147442avatar-14.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\css\\bootstrap-datetimepicker.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\bootstrap-datetimepicker.min.css"
     },
@@ -2011,18 +2027,6 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\js\\script.js",
       "PackagePath": "staticwebassets\\assets\\js\\script.js"
-    },
-    {
-      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\plugins\\alertify\\alertify.min.css",
-      "PackagePath": "staticwebassets\\assets\\plugins\\alertify\\alertify.min.css"
-    },
-    {
-      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\plugins\\alertify\\alertify.min.js",
-      "PackagePath": "staticwebassets\\assets\\plugins\\alertify\\alertify.min.js"
-    },
-    {
-      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\plugins\\alertify\\custom-alertify.min.js",
-      "PackagePath": "staticwebassets\\assets\\plugins\\alertify\\custom-alertify.min.js"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\plugins\\apexchart\\apexcharts.min.js",

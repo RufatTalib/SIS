@@ -11,6 +11,7 @@
           "FluentValidation": "11.4.0",
           "FluentValidation.AspNetCore": "11.2.2",
           "FluentValidation.DependencyInjectionExtensions": "11.4.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.13",
@@ -574,7 +575,8 @@
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
-          "SIS.Domain": "1.0.0"
+          "SIS.Domain": "1.0.0",
+          "SIS.Infrastructure": "1.0.0"
         },
         "runtime": {
           "SIS.Application.dll": {}
@@ -582,6 +584,7 @@
       },
       "SIS.Domain/1.0.0": {
         "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
         },
@@ -591,9 +594,9 @@
       },
       "SIS.Infrastructure/1.0.0": {
         "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
-          "SIS.Application": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
         },
         "runtime": {
           "SIS.Infrastructure.dll": {}
@@ -601,6 +604,7 @@
       },
       "SIS.Persistance/1.0.0": {
         "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
           "SIS.Application": "1.0.0"

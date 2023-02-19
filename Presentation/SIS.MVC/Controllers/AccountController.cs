@@ -19,7 +19,16 @@ namespace SIS.MVC.Controllers
 			_signInManager = signInManager;
 		}
 
-        /*public async Task<IActionResult> Setup()
+        /*public async Task<IActionResult> CreateRoles()
+        {
+            await _roleManager.CreateAsync(new() {Name="Admin"});
+			await _roleManager.CreateAsync(new() { Name = "Student" });
+			await _roleManager.CreateAsync(new() { Name = "Teacher" });
+
+            return Content("Finished.");
+		}*/
+
+		/*public async Task<IActionResult> Setup()
         {
             await _roleManager.CreateAsync(new() { Name = "SuperAdmin" });
 
@@ -38,7 +47,7 @@ namespace SIS.MVC.Controllers
         }
 */
 
-        [HttpGet]
+		[HttpGet]
         public IActionResult Login()
         {
             
@@ -64,6 +73,17 @@ namespace SIS.MVC.Controllers
 			}
 
 			return RedirectToAction("index","home");
+        }
+
+        public async Task<IActionResult> MyProfile()
+        {
+            if (!User.Identity.IsAuthenticated) return NotFound();
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (user == null) return NotFound();
+
+            return View(user);
         }
 
         public async Task<IActionResult> Logout()

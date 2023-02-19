@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SIS.Infrastructure</id>
+    <version>1.0.0</version>
+    <authors>SIS.Infrastructure</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="SIS.Application" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="MediatR.Extensions.Microsoft.DependencyInjection" version="11.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Identity.EntityFrameworkCore" version="6.0.13" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="6.0.13" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Infrastructure.runtimeconfig.json" target="lib\net6.0\SIS.Infrastructure.runtimeconfig.json" />
+    <file src="C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Infrastructure.dll" target="lib\net6.0\SIS.Infrastructure.dll" />
+  </files>
+</package>

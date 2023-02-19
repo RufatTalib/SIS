@@ -1,0 +1,174 @@
+﻿@using SIS.Domain.Entities;
+@using SIS.Persistance.Services;
+@inject HomeLayoutService Service
+
+@{
+	AppUser user = await Service.GetCurrentUser();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+	<title>@ViewData["Title"]</title>
+
+	<link rel="shortcut icon" href="~/assets/img/favicon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/assets/plugins/feather/feather.css">
+	<link rel="stylesheet" href="~/assets/plugins/icons/flags/flags.css">
+	<link rel="stylesheet" href="~/assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="~/assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="~/assets/css/style.css">
+
+	@RenderSection("HeadSection", required:false)
+
+</head>
+<body>
+
+	<div class="main-wrapper">
+
+		<div class="header">
+			<div class="header-left">
+				<a asp-action="index" asp-controller="home" asp-area="" class="logo">
+					<img src="~/assets/img/logo.png" alt="Logo">
+				</a>
+				<a asp-action="index" asp-controller="home" asp-area="" class="logo logo-small">
+					<img src="~/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+				</a>
+			</div>
+
+			<div class="menu-toggle">
+				<a href="javascript:void(0);" id="toggle_btn">
+					<i class="fas fa-bars"></i>
+				</a>
+			</div>
+
+			<div class="top-nav-search">
+				<form>
+					<input type="text" class="form-control" placeholder="Search here">
+					<button class="btn" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+			</div>
+
+
+			<a class="mobile_btn" id="mobile_btn">
+				<i class="fas fa-bars"></i>
+			</a>
+
+
+			<ul class="nav user-menu">
+
+				<li class="nav-item zoom-screen me-2">
+					<a href="#" class="nav-link header-nav-list win-maximize">
+						<img src="~/assets/img/icons/header-icon-04.svg" alt="">
+					</a>
+				</li>
+
+				<li class="nav-item dropdown has-arrow new-user-menus">
+
+					@if (user is null)
+					{
+						<a asp-action="login" asp-controller="account">
+							<span class="text">Login</span>
+							<span class="icon"><i class="feather-log-in"></i></span>
+						</a>
+
+					}
+					else
+					{
+						<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+							<span class="user-img">
+								<img class="rounded-circle" src="~/ProfilePhotos/@user.ImageSrc" width="31" alt="@user.FirstName @user.LastName">
+								<div class="user-text">
+									<h6>@user.FirstName @user.LastName</h6>
+									<p class="text-muted mb-0">@user.IdentityRoleName</p>
+								</div>
+							</span>
+						</a>
+						<div class="dropdown-menu">
+							<div class="user-header">
+								<div class="avatar avatar-sm">
+									<img src="~/ProfilePhotos/@user.ImageSrc" alt="User Image" class="avatar-img rounded-circle">
+								</div>
+								<div class="user-text">
+									<h6>@user.FirstName @user.LastName</h6>
+									<p class="text-muted mb-0">@user.IdentityRoleName</p>
+								</div>
+							</div>
+							<a class="dropdown-item" asp-action="myprofile" asp-controller="account" asp-area="">My Profile</a>
+
+							<a class="dropdown-item" asp-action="logout" asp-controller="account" asp-area="">Logout</a>
+						</div>
+
+					}
+
+
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="sidebar" id="sidebar">
+
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="menu-title">
+							<span>Main Menu</span>
+						</li>
+
+						@if(user.IdentityRoleName == "SuperAdmin")
+						{
+							<li><a asp-action="index" asp-controller="admin"><i class="fas fa-user"></i> <span>Admins</span></a></li>
+						}
+
+						<li><a asp-action="index" asp-controller="student"><i class="fas fa-graduation-cap"></i> <span>Students</span></a></li>
+						<li><a asp-action="index" asp-controller="teacher"><i class="fas fa-chalkboard-teacher"></i> <span>Teachers</span></a></li>
+						<li><a asp-action="index" asp-controller="department"><i class="fas fa-building"></i> <span>Departments</span></a></li>
+						<li><a asp-action="index" asp-controller="subject"><i class="fas fa-book-reader"></i> <span>Subjects</span></a></li>
+						<li class="menu-title">
+							<span>Management</span>
+						</li>
+						<li>
+							<a asp-action="index" asp-controller="exam"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+						</li>
+						<li>
+							<a asp-action="index" asp-controller="event"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
+						</li>
+						<li>
+							<a asp-action="index" asp-controller="timetable"><i class="fas fa-table"></i> <span>Time Table</span></a>
+						</li>
+						<li><a asp-action="index" asp-controller="blog"><i class="fa fa-newspaper"></i> <span>All blogs</span></a></li>
+						
+						@if(user.IdentityRoleName == "SuperAdmin")
+						{
+							<li>
+								<a asp-action="index" asp-controller="setting"><i class="fas fa-cog"></i> <span>Settings</span></a>
+							</li>
+						}
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		@RenderBody()
+
+	</div>
+
+	<script src="~/assets/js/jquery-3.6.0.min.js"></script>
+	<script src="~/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/assets/js/feather.min.js"></script>
+	<script src="~/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="~/assets/plugins/apexchart/apexcharts.min.js"></script>
+	<script src="~/assets/plugins/apexchart/chart-data.js"></script>
+	<script src="~/assets/js/script.js"></script>
+
+	@RenderSection("BodySection", required:false)
+
+</body>
+</html>

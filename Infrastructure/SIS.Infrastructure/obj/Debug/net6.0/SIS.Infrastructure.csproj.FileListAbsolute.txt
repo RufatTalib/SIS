@@ -1,16 +1,11 @@
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Infrastructure.deps.json
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Infrastructure.dll
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Infrastructure.pdb
-C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Application.dll
-C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Domain.dll
-C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Application.pdb
-C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\bin\Debug\net6.0\SIS.Domain.pdb
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.csproj.AssemblyReference.cache
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.AssemblyInfo.cs
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.csproj.CopyComplete
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.dll
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\refint\SIS.Infrastructure.dll
 C:\Users\PC\source\repos\SIS\Infrastructure\SIS.Infrastructure\obj\Debug\net6.0\SIS.Infrastructure.pdb
