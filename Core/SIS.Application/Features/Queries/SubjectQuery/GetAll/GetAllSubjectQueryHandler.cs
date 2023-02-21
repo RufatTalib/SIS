@@ -28,7 +28,7 @@ namespace SIS.Application.Features.Queries.SubjectQuery.GetAll
 
 			PaginatedList<Subject> subjects = PaginatedList<Subject>.Create(query, request.Page, request.PageSize);
 
-			return new GetAllSubjectQueryResponse() { Subjects = subjects };
+			return new GetAllSubjectQueryResponse { Subjects = subjects };
 		}
 	}
 }

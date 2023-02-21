@@ -2,15 +2,18 @@
 using SIS.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SIS.Domain.Entities
 {
-	public class Blog :  BaseEntity
+	public class Blog : BaseEntity
 	{
 		public string Title { get; set; }
+
+		[MaxLength(5120)]
 		public string Description { get; set; }
 		public string ImageUrl { get; set; }
 		public bool Active { get; set; }

@@ -26,6 +26,11 @@ namespace SIS.Persistance.Repositories
 			return Table.Any(expression);
 		}
 
+		public IQueryable<T> AsQueryable()
+		{
+			return Table.AsQueryable<T>();
+		}
+
 		public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
 		{
 			return await Table.AnyAsync(expression);

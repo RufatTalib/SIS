@@ -21,7 +21,7 @@ namespace SIS.Infrastructure.Tools
 			AddRange(values);
 		}
 
-		public static PaginatedList<T> Create(IQueryable<T> query, int page, int pageSize) 
+		public static PaginatedList<T> Create(IQueryable<T> query, int page = 1, int pageSize = 10) 
 		{
 			return new(query.Skip((page-1)*pageSize).Take(pageSize).ToList(), query.Count(), page, pageSize);
 		}

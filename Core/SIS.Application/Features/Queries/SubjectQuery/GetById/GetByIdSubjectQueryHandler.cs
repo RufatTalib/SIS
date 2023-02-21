@@ -18,12 +18,10 @@ namespace SIS.Application.Features.Queries.SubjectQuery.GetById
 		}
 		public async Task<GetByIdSubjectQueryResponse> Handle(GetByIdSubjectQueryRequest request, CancellationToken cancellationToken)
 		{
-			GetByIdSubjectQueryResponse response = new()
+			return new()
 			{
-				Subject = await _subjectReadRepository.FirstOrDefaultAsync(x => x.Id == request.Id && x.IsDeleted == false)
+				Subject = await _subjectReadRepository.GetByIdAsync(request.Id)
 			};
-
-			return response;
 		}
 	}
 }

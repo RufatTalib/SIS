@@ -1,8 +1,20 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\23d34aea-7572-4e03-80b6-05cae2078e88blog-4.jpg",
+      "PackagePath": "staticwebassets\\BlogPhotos\\23d34aea-7572-4e03-80b6-05cae2078e88blog-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\97e097af-de0c-4d41-a30e-393bca5856e4blog-3.jpg",
+      "PackagePath": "staticwebassets\\BlogPhotos\\97e097af-de0c-4d41-a30e-393bca5856e4blog-3.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\0b73716c-7452-4528-8c7c-a5e9581c96d1avatar-17.jpg",
       "PackagePath": "staticwebassets\\ProfilePhotos\\0b73716c-7452-4528-8c7c-a5e9581c96d1avatar-17.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\44b3b20d-302b-4f86-8ce0-88fb2f37190favatar-12.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\44b3b20d-302b-4f86-8ce0-88fb2f37190favatar-12.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\bc1ee68d-c940-43e3-bd43-e6eca075d9b0avatar-10.jpg",

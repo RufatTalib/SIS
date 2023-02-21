@@ -1,0 +1,161 @@
+﻿@using SIS.Application.Features.Queries.BlogQuery.GetAll;
+@using SIS.Domain.Entities;
+@model GetAllBlogQueryResponse
+
+@section HeadSection
+	{
+	<script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+}
+
+<div class="page-wrapper">
+	<div class="content container-fluid">
+		<div class="row">
+			<div class="col-md-9">
+				<ul class="list-links mb-4">
+					<li class="active"><a href="blog.html">Active Blog</a></li>
+					<li><a href="pending-blog.html">Pending Blog</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 text-md-end">
+				<a asp-action="create" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add New</a>
+			</div>
+		</div>
+		<div class="row">
+
+			@foreach(Blog blog in Model.Blogs)
+			{
+				<div class="col-md-6 col-xl-4 col-sm-12 d-flex">
+					<div class="blog grid-blog flex-fill">
+						<div class="blog-image">
+							<a asp-action="detail" asp-route-id="@blog.Id"><img class="img-fluid" src="~/BlogPhotos/@blog.ImageUrl" alt="Post Image"></a>
+							<div class="blog-views">
+								<i class="feather-eye me-1"></i> @blog.ViewCount
+							</div>
+						</div>
+						<div class="blog-content">
+							@*<ul class="entry-meta meta-item">
+								<li>
+									<div class="post-author">
+										<a asp-action="profile">
+											<img src="@blog.Owner.ImageSrc" alt="Post Author">
+											<span>
+												<span class="post-title">@blog.Owner.FirstName @blog.Owner.LastName</span>
+												<span class="post-date"><i class="far fa-clock"></i> @blog.CreatedDate?.ToString("dd MMM yyyy")</span>
+											</span>
+										</a>
+									</div>
+								</li>
+							</ul>*@
+							<h3 class="blog-title"><a href="blog-details.html">@blog.Title </a></h3>
+							<p>@blog.Description</p>
+						</div>
+						<div class="row">
+							<div class="edit-options">
+								<div class="edit-delete-btn">
+									<a asp-action="update" asp-route-id="@blog.Id" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>
+									<a asp-action="delete" asp-route-id="@blog.Id" class="text-danger" id="deletebtn"><i class="feather-trash-2 me-1"></i> Delete</a>
+								</div>
+								@*<div class="text-end inactive-style">
+									<a asp-action="hide" asp-route-id="@blog.Id" class="text-danger" id="hidebtn">
+										<i class="feather-eye-off me-1"></i> Inactive
+										</a>
+								</div>*@
+								<div class="text-end inactive-style">
+									<a asp-action="hide" asp-route-id="@blog.Id" class="text-success" id="hidebtn">
+										<i class="me-1"></i> Active
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			}
+
+		</div>
+
+		<div class="row ">
+			<div class="col-md-12">
+				<div class="pagination-tab  d-flex justify-content-center">
+					<ul class="pagination mb-0">
+						<li class="page-item @(Model.Blogs.HasPrev ? "" : "disabled")">
+							<a class="page-link" asp-action="index" asp-route-Page="@(Model.Blogs.ActivePage-1)">Previous</a>
+						</li>
+
+						@{
+							int currentPage = Model.Blogs.ActivePage;
+							int totalPage = Model.Blogs.TotalPage;
+						}
+
+						@for (int i = 1; i <= totalPage; i++)
+						{
+							<li class="page-item @(currentPage == i ? "active" : "")"><a class="page-link" asp-action="index" asp-route-Page="@i">@i</a></li>
+						}
+
+						<li class="page-item @(Model.Blogs.HasNext ? "" : "disabled")">
+							<a class="page-link" asp-route-Page="@(Model.Blogs.ActivePage+1)">Next</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+@section BodySection
+	{
+	<script>
+		let btns = document.querySelectorAll("#deletebtn");
+
+		btns.forEach(x => {
+			let url = x.getAttribute("href");
+			x.addEventListener("click", function (e) {
+				e.preventDefault();
+
+				Swal.fire({
+					title: 'Are you sure?',
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Yes, delete it!'
+				}).then((result) => {
+					if (result.isConfirmed) {
+
+						fetch(url).then(
+							response => {
+								if (response.status == 200) {
+									x.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+
+									Swal.fire(
+										'Deleted!',
+										'Blog has been deleted.',
+										'success'
+									);
+								}
+								else {
+									Swal.fire({
+										icon: 'error',
+										title: 'Couldn\'t delete!',
+										text: 'Something went wrong!'
+									})
+								}
+							}
+						);
+
+
+					}
+				})
+
+			});
+
+		});
+
+
+
+
+	</script>
+}

@@ -25,4 +25,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Commands\TeacherCommand\DeleteTeacher\" />
+    <Folder Include="Features\Commands\TeacherCommand\UpdateTeacher\" />
+  </ItemGroup>
+
 </Project>

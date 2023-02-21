@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SIS.Application.Repositories.BlogRepository;
 using SIS.Application.Repositories.DepartmentRepository;
 using SIS.Application.Repositories.SubjectRepository;
+using SIS.Persistance.Repositories.BlogRepository;
 using SIS.Persistance.Repositories.DepartmentRepository;
 using SIS.Persistance.Repositories.SubjectRepository;
 using SIS.Persistance.Services;
@@ -24,6 +26,8 @@ namespace SIS.Persistance.Extentions
 			services.AddScoped<ISubjectReadRepository, SubjectReadRepository>();
 			services.AddScoped<ISubjectWriteRepository, SubjectWriteRepository>();
 
+			services.AddScoped<IBlogReadRepository, BlogReadRepository>();
+			services.AddScoped<IBlogWriteRepository, BlogWriteRepository>();
 
 		}
 	}

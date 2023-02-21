@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using SIS.Application.Features.Queries.Common;
+using SIS.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

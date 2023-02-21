@@ -13,6 +13,7 @@ namespace SIS.Application.Repositories
 		IQueryable<T> GetAll();
 		IQueryable<T> GetWhere(Expression<Func<T,bool>> expression);
 		bool Any(Expression<Func<T, bool>> expression);
+		IQueryable<T> AsQueryable();
 		Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
 		Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression);
 		Task<T> GetByIdAsync(int Id);

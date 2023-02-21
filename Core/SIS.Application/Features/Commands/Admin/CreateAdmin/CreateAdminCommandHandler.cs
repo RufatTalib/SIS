@@ -42,7 +42,7 @@ namespace SIS.Application.Features.Commands.Admin.CreateAdmin
 			if (user is not null)
 				return new() { Success = false, ErrorMessage = "Email already exists" };
 
-			user = new()
+			user = new()	
 			{
 				FirstName = request.FirstName,
 				LastName = request.LastName,

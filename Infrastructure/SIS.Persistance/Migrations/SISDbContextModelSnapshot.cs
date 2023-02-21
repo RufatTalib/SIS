@@ -34,7 +34,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("AppUserGroup");
+                    b.ToTable("AppUserGroup", (string)null);
                 });
 
             modelBuilder.Entity("AppUserSubject", b =>
@@ -49,7 +49,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("AppUserSubject");
+                    b.ToTable("AppUserSubject", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -286,7 +286,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Attendance");
+                    b.ToTable("Attendance", (string)null);
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Blog", b =>
@@ -332,7 +332,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Blog");
+                    b.ToTable("Blog", (string)null);
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Department", b =>
@@ -368,7 +368,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Department");
+                    b.ToTable("Department", (string)null);
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Group", b =>
@@ -394,7 +394,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Group");
+                    b.ToTable("Group", (string)null);
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>
@@ -442,7 +442,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("LessonEvent");
+                    b.ToTable("LessonEvent", (string)null);
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Subject", b =>
@@ -468,7 +468,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subject");
+                    b.ToTable("Subject", (string)null);
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.AppUser", b =>
