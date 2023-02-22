@@ -1,0 +1,13 @@
+﻿@using SIS.Application.Features.Queries.GroupQuery.GetAll;
+@using SIS.Domain.Entities;
+@model GetAllGroupQueryResponse
+<a asp-action="create">Create</a>
+<ul>
+	@foreach(Group model in Model.Groups)
+	{
+		<li>
+			<p>@(model.Name)</p><a asp-action="delete" asp-route-id="@(model.Id)">Delete</a>
+		</li>
+
+	}
+</ul>

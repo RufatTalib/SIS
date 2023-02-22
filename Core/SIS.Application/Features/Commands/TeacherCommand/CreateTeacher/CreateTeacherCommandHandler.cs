@@ -44,11 +44,14 @@ namespace SIS.Application.Features.Commands.TeacherCommand.CreateTeacher
 				BirthDate = request.BirthDate,
 				PhoneNumber = request.Phone,
 				Adress = request.Adress,
-				JobDescription = request.JobDescription,
+				JobDescription = "Teacher",
 				Gender = request.Gender,
 				UserName = request.UserName,
 				IdentityRoleName = "Teacher",
 				DepartmentId = request.DepartmentId,
+				ClassNumber = request.ClassNumber,
+				Qualification = request.Qualification,
+				Experience = request.Experience,
 				ImageSrc = request.Image.Save(_env.WebRootPath, "ProfilePhotos")
 			};
 

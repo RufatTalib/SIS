@@ -2,132 +2,119 @@
 @model UpdateAdminCommandRequest
 @using SIS.Domain.Enumerations;
 
-<div class="page-wrapper">
-	<div class="content container-fluid">
-
-		<div class="page-header">
-			<div class="row align-items-center">
-				<div class="col">
-					<h3 class="page-title">Add Admins</h3>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="card">
-					<div class="card-body">
-						<form asp-action="update" method="post" enctype="multipart/form-data">
-							<div class="row">
-								<div class="col-12">
-									<h5 class="form-title"><span>Basic Details</span></h5>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>First Name <span class="login-danger">*</span></label>
-										<input asp-for="FirstName" class="form-control" placeholder="Enter Name">
-										<span asp-validation-for="FirstName" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>Last Name <span class="login-danger">*</span></label>
-										<input asp-for="LastName" class="form-control" placeholder="Enter Name">
-										<span asp-validation-for="LastName" class="text-danger"></span>
-
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>Gender <span class="login-danger">*</span></label>
-										<select class="form-control select" asp-for="Gender">
-											@foreach (Gender gender in (Gender[])Enum.GetValues(typeof(Gender)))
-											{
-												<option value="@gender">@gender</option>
-											}
-										</select>
-										<span asp-validation-for="Gender" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms calendar-icon">
-										<label>Date Of Birth <span class="login-danger">*</span></label>
-										<input asp-for="BirthDate" class="form-control">
-										<span asp-validation-for="BirthDate" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>Phone <span class="login-danger">*</span></label>
-										<input asp-for="Phone" class="form-control" placeholder="Enter Phone">
-										<span asp-validation-for="Phone" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>Job Description <span class="login-danger">*</span></label>
-										<input asp-for="JobDescription" class="form-control" placeholder="Enter Job">
-										<span asp-validation-for="JobDescription" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12">
-									<h5 class="form-title"><span>Login Details</span></h5>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>Username <span class="login-danger">*</span></label>
-										<input asp-for="UserName" type="text" class="form-control" placeholder="Enter Username">
-										<span asp-validation-for="UserName" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group local-forms">
-										<label>Email <span class="login-danger">*</span></label>
-										<input asp-for="Email" class="form-control" placeholder="Enter Mail">
-										<span asp-validation-for="Email" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12">
-									<h5 class="form-title"><span>Address</span></h5>
-								</div>
-								<div class="col-12">
-									<div class="form-group local-forms">
-										<label>Address <span class="login-danger">*</span></label>
-										<input asp-for="Adress" class="form-control" placeholder="Enter address">
-										<span asp-validation-for="Adress" class="text-danger"></span>
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div class="form-group students-up-files">
-										<label>Upload Admin Photo (150px X 150px)</label>
-										<div class="upload">
-											<label class="file-upload image-upbtn mb-0">
-												Choose File <input asp-for="Image">
-											</label>
-										</div>
-
-										<span asp-validation-for="Image" class="text-danger"></span>
-										<br />
-										<span asp-validation-for="Image.ContentType" class="text-danger"></span>
-										<br />
-										<span asp-validation-for="Image.Length" class="text-danger"></span>
-
-
-									</div>
-								</div>
-								<div class="col-12 col-sm-4">
-									<div asp-validation-summary="ModelOnly">
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="student-submit">
-										<button type="submit" class="btn btn-primary">Update</button>
-									</div>
-								</div>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card">
+			<div class="card-body">
+				<form asp-action="update" method="post" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-12">
+							<h5 class="form-title"><span>Basic Details</span></h5>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>First Name <span class="login-danger">*</span></label>
+								<input asp-for="FirstName" class="form-control" placeholder="Enter Name">
+								<span asp-validation-for="FirstName" class="text-danger"></span>
 							</div>
-						</form>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>Last Name <span class="login-danger">*</span></label>
+								<input asp-for="LastName" class="form-control" placeholder="Enter Name">
+								<span asp-validation-for="LastName" class="text-danger"></span>
+
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>Gender <span class="login-danger">*</span></label>
+								<select class="form-control select" asp-for="Gender">
+									@foreach (Gender gender in (Gender[])Enum.GetValues(typeof(Gender)))
+									{
+										<option value="@gender">@gender</option>
+									}
+								</select>
+								<span asp-validation-for="Gender" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms calendar-icon">
+								<label>Date Of Birth <span class="login-danger">*</span></label>
+								<input asp-for="BirthDate" class="form-control">
+								<span asp-validation-for="BirthDate" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>Phone <span class="login-danger">*</span></label>
+								<input asp-for="Phone" class="form-control" placeholder="Enter Phone">
+								<span asp-validation-for="Phone" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>Job Description <span class="login-danger">*</span></label>
+								<input asp-for="JobDescription" class="form-control" placeholder="Enter Job">
+								<span asp-validation-for="JobDescription" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12">
+							<h5 class="form-title"><span>Login Details</span></h5>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>Username <span class="login-danger">*</span></label>
+								<input asp-for="UserName" type="text" class="form-control" placeholder="Enter Username">
+								<span asp-validation-for="UserName" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group local-forms">
+								<label>Email <span class="login-danger">*</span></label>
+								<input asp-for="Email" class="form-control" placeholder="Enter Mail">
+								<span asp-validation-for="Email" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12">
+							<h5 class="form-title"><span>Address</span></h5>
+						</div>
+						<div class="col-12">
+							<div class="form-group local-forms">
+								<label>Address <span class="login-danger">*</span></label>
+								<input asp-for="Adress" class="form-control" placeholder="Enter address">
+								<span asp-validation-for="Adress" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div class="form-group students-up-files">
+								<label>Upload Admin Photo (150px X 150px)</label>
+								<div class="upload">
+									<label class="file-upload image-upbtn mb-0">
+										Choose File <input asp-for="Image">
+									</label>
+								</div>
+
+								<span asp-validation-for="Image" class="text-danger"></span>
+								<br />
+								<span asp-validation-for="Image.ContentType" class="text-danger"></span>
+								<br />
+								<span asp-validation-for="Image.Length" class="text-danger"></span>
+
+
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div asp-validation-summary="ModelOnly">
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="student-submit">
+								<button type="submit" class="btn btn-primary">Update</button>
+							</div>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

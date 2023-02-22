@@ -45,11 +45,17 @@ namespace SIS.Application.Features.Commands.TeacherCommand.CreateTeacher
 		[StringLength(maximumLength: 255)]
 		public string Adress { get; set; }
 
-		[Required(ErrorMessage = "Please, enter job description !")]
-		[StringLength(maximumLength: 255)]
-		public string JobDescription { get; set; }
-
 		public int DepartmentId { get; set; }
+
+		[Required(ErrorMessage = "Please, enter the classroom number specified to the teacher !")]
+		public int ClassNumber { get; set; }
+
+		[Required(ErrorMessage = "Please, enter qualification of teacher !")]
+		[StringLength(maximumLength: 255)]
+		public string Qualification { get; set; }
+
+		[Required(ErrorMessage = "Please, enter qualification of teacher !")]
+		public int Experience { get; set; }
 
 		public Gender Gender { get; set; }
 

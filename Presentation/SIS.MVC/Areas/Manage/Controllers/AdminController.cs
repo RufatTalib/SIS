@@ -4,13 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SIS.Application.Features.Commands.Admin.Create;
-using SIS.Application.Features.Commands.Admin.CreateAdmin;
 using SIS.Application.Features.Commands.Admin.UpdateAdmin;
 using SIS.Application.Features.Queries.Admin.GetAll;
 using SIS.Application.Validators.AdminCommandValidators;
 using SIS.Domain.Entities;
-using SIS.Infrastructure.Tools;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace SIS.MVC.Areas.Manage.Controllers
 {

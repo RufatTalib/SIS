@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\BlogPhotos\\23d34aea-7572-4e03-80b6-05cae2078e88blog-4.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\81602add-9b5e-4131-8aba-c296a754ea80blog-3.jpg",
+      "PackagePath": "staticwebassets\\BlogPhotos\\81602add-9b5e-4131-8aba-c296a754ea80blog-3.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\97e097af-de0c-4d41-a30e-393bca5856e4blog-3.jpg",
       "PackagePath": "staticwebassets\\BlogPhotos\\97e097af-de0c-4d41-a30e-393bca5856e4blog-3.jpg"
     },
@@ -17,6 +21,14 @@
       "PackagePath": "staticwebassets\\ProfilePhotos\\44b3b20d-302b-4f86-8ce0-88fb2f37190favatar-12.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\808638c2-2529-4783-8178-8f90315b544eavatar-08.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\808638c2-2529-4783-8178-8f90315b544eavatar-08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\908758ab-f7a7-4a1e-a820-c6b434d50394avatar-04.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\908758ab-f7a7-4a1e-a820-c6b434d50394avatar-04.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\bc1ee68d-c940-43e3-bd43-e6eca075d9b0avatar-10.jpg",
       "PackagePath": "staticwebassets\\ProfilePhotos\\bc1ee68d-c940-43e3-bd43-e6eca075d9b0avatar-10.jpg"
     },
@@ -27,6 +39,18 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\d106a708-a9f2-4cd6-b9a8-68b252147442avatar-14.jpg",
       "PackagePath": "staticwebassets\\ProfilePhotos\\d106a708-a9f2-4cd6-b9a8-68b252147442avatar-14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\110e5cd4-8dec-43f0-80b2-ab5ff305fec6blog-detail.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\110e5cd4-8dec-43f0-80b2-ab5ff305fec6blog-detail.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\8d54e7cf-467e-47a5-b1eb-557d57eba6dfblog-6.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\8d54e7cf-467e-47a5-b1eb-557d57eba6dfblog-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\cc56d399-ab0a-443c-a566-d814c2a6262ablog-5.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\cc56d399-ab0a-443c-a566-d814c2a6262ablog-5.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\css\\bootstrap-datetimepicker.min.css",

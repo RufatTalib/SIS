@@ -127,21 +127,27 @@
 
 						<li><a asp-action="index" asp-controller="student"><i class="fas fa-graduation-cap"></i> <span>Students</span></a></li>
 						<li><a asp-action="index" asp-controller="teacher"><i class="fas fa-chalkboard-teacher"></i> <span>Teachers</span></a></li>
+						<li><a asp-action="index" asp-controller="group"><i class="fas fa-users"></i> <span>Groups</span></a></li>
+
 						<li><a asp-action="index" asp-controller="department"><i class="fas fa-building"></i> <span>Departments</span></a></li>
 						<li><a asp-action="index" asp-controller="subject"><i class="fas fa-book-reader"></i> <span>Subjects</span></a></li>
 						<li class="menu-title">
 							<span>Management</span>
 						</li>
 						<li>
-							<a asp-action="index" asp-controller="exam"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+							<a asp-action="index" asp-controller="exam"><i class="fas fa-clipboard-list"></i> <span>All Exam list</span></a>
 						</li>
 						<li>
-							<a asp-action="index" asp-controller="event"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
+							<a asp-action="index" asp-controller="event"><i class="fas fa-calendar-day"></i> <span>All Events</span></a>
 						</li>
 						<li>
 							<a asp-action="index" asp-controller="timetable"><i class="fas fa-table"></i> <span>Time Table</span></a>
 						</li>
 						<li><a asp-action="index" asp-controller="blog"><i class="fa fa-newspaper"></i> <span>All blogs</span></a></li>
+
+						<li><a asp-action="index" asp-controller="slider"><i class="fa fa-th"></i> <span>All Sliders</span></a></li>
+
+
 						
 						@if(user.IdentityRoleName == "SuperAdmin")
 						{
@@ -156,7 +162,35 @@
 			</div>
 		</div>
 
-		@RenderBody()
+		
+
+		<div class="page-wrapper">
+			<div class="content container-fluid">
+
+				<div class="page-header">
+					<div class="row align-items-center">
+						<div class="col">
+							<h3 class="page-title">Teachers</h3>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a asp-action="index">Dashboard</a></li>
+								<li class="breadcrumb-item active">@ViewData["Location"]</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				@RenderBody()
+
+			</div>
+
+
+			<footer>
+				<p>Copyright © 2023 Kochrufet.</p>
+			</footer>
+
+		</div>
+
+
 
 	</div>
 

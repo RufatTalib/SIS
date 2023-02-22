@@ -35,10 +35,12 @@ namespace SIS.Domain.Entities
 
         // Teacher properties
         public int? ClassNumber { get; set; }
+        public string? Qualification { get; set; }
+        public int? Experience { get; set; }
         public List<Subject> Subjects { get; set; }
 
-
         // Student properties
+
         public List<Attendance> Attendances { get; set; }
 
 

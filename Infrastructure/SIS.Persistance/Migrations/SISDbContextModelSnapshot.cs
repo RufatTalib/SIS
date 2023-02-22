@@ -34,7 +34,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("AppUserGroup", (string)null);
+                    b.ToTable("AppUserGroup");
                 });
 
             modelBuilder.Entity("AppUserSubject", b =>
@@ -49,7 +49,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("AppUserSubject", (string)null);
+                    b.ToTable("AppUserSubject");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -286,7 +286,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Attendance", (string)null);
+                    b.ToTable("Attendance");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Blog", b =>
@@ -305,6 +305,7 @@ namespace SIS.Persistance.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(5120)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
@@ -332,7 +333,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Blog", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Department", b =>
@@ -368,7 +369,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Group", b =>
@@ -394,7 +395,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Group", (string)null);
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>
@@ -442,7 +443,70 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("LessonEvent", (string)null);
+                    b.ToTable("LessonEvent");
+                });
+
+            modelBuilder.Entity("SIS.Domain.Entities.Slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Caption")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliders");
+                });
+
+            modelBuilder.Entity("SIS.Domain.Entities.SliderImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageSrc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SliderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SliderId");
+
+                    b.ToTable("SliderImages");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Subject", b =>
@@ -468,7 +532,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subject", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.AppUser", b =>
@@ -493,6 +557,9 @@ namespace SIS.Persistance.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Experience")
+                        .HasColumnType("int");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -512,6 +579,9 @@ namespace SIS.Persistance.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Qualification")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("RemovedDate")
@@ -652,6 +722,17 @@ namespace SIS.Persistance.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("SIS.Domain.Entities.SliderImage", b =>
+                {
+                    b.HasOne("SIS.Domain.Entities.Slider", "Slider")
+                        .WithMany("Images")
+                        .HasForeignKey("SliderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Slider");
+                });
+
             modelBuilder.Entity("SIS.Domain.Entities.AppUser", b =>
                 {
                     b.HasOne("SIS.Domain.Entities.Department", "Department")
@@ -669,6 +750,11 @@ namespace SIS.Persistance.Migrations
             modelBuilder.Entity("SIS.Domain.Entities.Group", b =>
                 {
                     b.Navigation("LessonEvents");
+                });
+
+            modelBuilder.Entity("SIS.Domain.Entities.Slider", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Subject", b =>

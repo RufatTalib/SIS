@@ -26,8 +26,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Commands\SliderCommand\UpdateSlider\" />
+    <Folder Include="Features\Commands\StudentCommand\DeleteStudent\" />
+    <Folder Include="Features\Commands\StudentCommand\UpdateStudent\" />
     <Folder Include="Features\Commands\TeacherCommand\DeleteTeacher\" />
     <Folder Include="Features\Commands\TeacherCommand\UpdateTeacher\" />
+    <Folder Include="Features\Queries\StudentQuery\" />
   </ItemGroup>
 
 </Project>

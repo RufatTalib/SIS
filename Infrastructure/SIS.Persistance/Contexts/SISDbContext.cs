@@ -16,5 +16,11 @@ namespace SIS.Persistance.Contexts
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<SliderImage> SliderImages { get; set; }
+        public DbSet<Group> Groups { get; set; }
     }
 }
