@@ -1,0 +1,29 @@
+﻿@using SIS.Application.Features.Commands.EventCommand.CreateEvent;
+@using SIS.Domain.Enumerations;
+@model CreateEventCommandRequest
+
+<form asp-action="create" method="post">
+	<label>Event name</label>
+	<input asp-for="Name" />
+	<span asp-validation-for="Name"></span>
+
+	<label>Event StartDate</label>
+	<input asp-for="StartDate" />
+	<span asp-validation-for="StartDate"></span>
+
+	<label>Event EndDate</label>
+	<input asp-for="EndDate" />
+	<span asp-validation-for="EndDate"></span>
+
+	<label>Period</label>
+	<select class="form-control select" asp-for="Period">
+		@foreach (Period period in (Period[])Enum.GetValues(typeof(Period)))
+		{
+			<option value="@period">@period</option>
+		}
+	</select>
+	<span asp-validation-for="Period" class="text-danger"></span>
+
+
+	<button type="submit">Create</button>
+</form>

@@ -38,9 +38,10 @@ namespace SIS.Domain.Entities
         public string? Qualification { get; set; }
         public int? Experience { get; set; }
         public List<Subject>? Subjects { get; set; }
+        public List<LessonEvent>? LessonEvents { get; set; }
 
         // Student properties
-        public List<Attendance> Attendances { get; set; }
+        public List<Attendance>? Attendances { get; set; }
 
 
     }

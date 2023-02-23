@@ -8,7 +8,6 @@ namespace SIS.Domain.Entities
 {
 	public class LessonEvent : Event
 	{
-
 		// Disabling for now
 		// Customer can join an individual lesson
 		//public string AppUserId { get; set; }
@@ -22,6 +21,7 @@ namespace SIS.Domain.Entities
 
 		public int SubjectId { get; set; }
 		public Subject? Subject { get; set; }
+		public AppUser? Teacher { get; set; }
 
 
 

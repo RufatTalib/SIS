@@ -286,7 +286,7 @@ namespace SIS.Persistance.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Attendance");
+                    b.ToTable("Attendances");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Blog", b =>
@@ -372,6 +372,47 @@ namespace SIS.Persistance.Migrations
                     b.ToTable("Departments");
                 });
 
+            modelBuilder.Entity("SIS.Domain.Entities.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Period")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Event");
+                });
+
             modelBuilder.Entity("SIS.Domain.Entities.Group", b =>
                 {
                     b.Property<int>("Id")
@@ -396,54 +437,6 @@ namespace SIS.Persistance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Groups");
-                });
-
-            modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ClassNumber")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GroupId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Period")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("RemovedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GroupId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.ToTable("LessonEvent");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Slider", b =>
@@ -592,6 +585,31 @@ namespace SIS.Persistance.Migrations
                     b.HasDiscriminator().HasValue("AppUser");
                 });
 
+            modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>
+                {
+                    b.HasBaseType("SIS.Domain.Entities.Event");
+
+                    b.Property<int>("ClassNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TeacherId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.HasIndex("TeacherId");
+
+                    b.HasDiscriminator().HasValue("LessonEvent");
+                });
+
             modelBuilder.Entity("AppUserGroup", b =>
                 {
                     b.HasOne("SIS.Domain.Entities.Group", null)
@@ -703,25 +721,6 @@ namespace SIS.Persistance.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>
-                {
-                    b.HasOne("SIS.Domain.Entities.Group", "Group")
-                        .WithMany("LessonEvents")
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SIS.Domain.Entities.Subject", "Subject")
-                        .WithMany("LessonEvents")
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("Subject");
-                });
-
             modelBuilder.Entity("SIS.Domain.Entities.SliderImage", b =>
                 {
                     b.HasOne("SIS.Domain.Entities.Slider", "Slider")
@@ -740,6 +739,31 @@ namespace SIS.Persistance.Migrations
                         .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>
+                {
+                    b.HasOne("SIS.Domain.Entities.Group", "Group")
+                        .WithMany("LessonEvents")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SIS.Domain.Entities.Subject", "Subject")
+                        .WithMany("LessonEvents")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SIS.Domain.Entities.AppUser", "Teacher")
+                        .WithMany("LessonEvents")
+                        .HasForeignKey("TeacherId");
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.Department", b =>
@@ -767,6 +791,8 @@ namespace SIS.Persistance.Migrations
                     b.Navigation("Attendances");
 
                     b.Navigation("Blogs");
+
+                    b.Navigation("LessonEvents");
                 });
 #pragma warning restore 612, 618
         }

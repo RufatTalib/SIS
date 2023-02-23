@@ -1,0 +1,10 @@
+﻿@using SIS.Application.Features.Queries.LessonEventQuery.GetAll;
+@model GetAllLessonEventQueryResponse
+
+<a asp-action="create">Create New</a>
+<ul>
+	@foreach(var lesson in Model.LessonEvents)
+	{
+		<li>@lesson.Name @lesson.Group?.Name @lesson.Subject?.Name @lesson.Period</li>
+	}
+</ul>

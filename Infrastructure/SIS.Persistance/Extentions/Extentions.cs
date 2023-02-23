@@ -1,13 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SIS.Application.Repositories.AttendanceRepository;
 using SIS.Application.Repositories.BlogRepository;
 using SIS.Application.Repositories.DepartmentRepository;
+using SIS.Application.Repositories.EventRepository;
 using SIS.Application.Repositories.GroupRepository;
+using SIS.Application.Repositories.LessonEventRepository;
 using SIS.Application.Repositories.SliderImageRepository;
 using SIS.Application.Repositories.SliderRepository;
 using SIS.Application.Repositories.SubjectRepository;
+using SIS.Persistance.Repositories.AttendanceRepository;
 using SIS.Persistance.Repositories.BlogRepository;
 using SIS.Persistance.Repositories.DepartmentRepository;
+using SIS.Persistance.Repositories.EventRepository;
 using SIS.Persistance.Repositories.GroupRepository;
+using SIS.Persistance.Repositories.LessonEventRepository;
 using SIS.Persistance.Repositories.SliderImageRepository;
 using SIS.Persistance.Repositories.SliderRepository;
 using SIS.Persistance.Repositories.SubjectRepository;
@@ -43,6 +49,15 @@ namespace SIS.Persistance.Extentions
 
 			services.AddScoped<IGroupReadRepository, GroupReadRepository>();
 			services.AddScoped<IGroupWriteRepository, GroupWriteRepository>();
+
+			services.AddScoped<IEventReadRepository, EventReadRepository>();
+			services.AddScoped<IEventWriteRepository, EventWriteRepository>();
+
+			services.AddScoped<ILessonEventReadRepository, LessonEventReadRepository>();
+			services.AddScoped<ILessonEventWriteRepository, LessonEventWriteRepository>();
+
+			services.AddScoped<IAttendanceReadRepository, AttendanceReadRepository>();
+			services.AddScoped<IAttendanceWriteRepository, AttendanceWriteRepository>();
 
 		}
 	}

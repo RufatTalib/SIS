@@ -22,5 +22,8 @@ namespace SIS.Persistance.Contexts
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<SliderImage> SliderImages { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<LessonEvent> LessonEvents { get; set; }
+        public DbSet<Attendance> Attendances { get; set; }
     }
 }

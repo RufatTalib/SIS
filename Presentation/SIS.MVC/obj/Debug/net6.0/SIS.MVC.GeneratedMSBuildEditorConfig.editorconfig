@@ -60,12 +60,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXERlcGFydG1lbnRcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Event/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEV2ZW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Event/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEV2ZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Group/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEdyb3VwXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Group/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEdyb3VwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/LessonEvent/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXExlc3NvbkV2ZW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/LessonEvent/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXExlc3NvbkV2ZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/LessonEvent/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXExlc3NvbkV2ZW50XFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Shared/_Layout.cshtml]
@@ -82,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Student/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFN0dWRlbnRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Student/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFN0dWRlbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PC/source/repos/SIS/Presentation/SIS.MVC/Areas/Manage/Views/Subject/Create.cshtml]

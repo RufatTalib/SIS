@@ -1,0 +1,46 @@
+﻿@using SIS.Application.Features.Commands.LessonEventCommand.CreateLessonEvent;
+@using SIS.Domain.Entities;
+@using SIS.Domain.Enumerations;
+@model CreateLessonEventCommandRequest
+
+<form asp-action="create" method="post">
+	
+	<label>Name</label>
+	<input asp-for="Name"/>
+
+	<label>Classroom number</label>
+	<input asp-for="ClassNumber" />
+
+	<label>Start date</label>
+	<input asp-for="StartDate" />
+
+	<label>End date</label>
+	<input asp-for="EndDate" />
+
+	<label>Period</label>
+	<select class="form-control select" asp-for="Period">
+		@foreach (Period period in (Period[])Enum.GetValues(typeof(Period)))
+		{
+			<option value="@period">@period</option>
+		}
+	</select>
+
+	<label>Group</label>
+	<select class="form-control select" asp-for="GroupId">
+		@foreach (Group group in (List<Group>) ViewData["Groups"] )
+		{
+			<option value="@group.Id">@group.Name</option>
+		}
+	</select>
+
+	<label>Subject</label>
+	<select class="form-control select" asp-for="SubjectId">
+		@foreach (Subject subject in (List<Subject>)ViewData["Subjects"])
+		{
+			<option value="@subject.Id">@subject.Name</option>
+		}
+	</select>
+
+
+	<button type="submit">Create</button>
+</form>

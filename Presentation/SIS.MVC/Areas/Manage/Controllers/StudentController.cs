@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SIS.Application.Features.Commands.StudentCommand.CreateStudent;
+using SIS.Application.Features.Commands.StudentCommand.DeleteStudent;
+using SIS.Application.Features.Queries.StudentQuery.GetAll;
 using SIS.Application.Repositories.DepartmentRepository;
 using SIS.Application.Repositories.GroupRepository;
 using SIS.Domain.Entities;
@@ -28,15 +30,15 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			_departmentReadRepository = departmentReadRepository;
 			_groupReadRepository = groupReadRepository;
 		}
-		public IActionResult Index()
+		public async Task<IActionResult> Index(GetAllStudentQueryRequest request)
 		{
-			return View();
+			return View(await _mediator.Send(request));
 		}
 
 		public IActionResult Create()
 		{
-			ViewData["Departments"] = _departmentReadRepository.GetAll().ToList();
-			ViewData["Groups"] = _groupReadRepository.GetAll().ToList();
+			ViewData["Departments"] = _departmentReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
+			ViewData["Groups"] = _groupReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 
 			return View();
 		}
@@ -44,8 +46,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateStudentCommandRequest request)
 		{
-			ViewData["Departments"] = _departmentReadRepository.GetAll().ToList();
-			ViewData["Groups"] = _groupReadRepository.GetAll().ToList();
+			ViewData["Departments"] = _departmentReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
+			ViewData["Groups"] = _groupReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 
 			if (!ModelState.IsValid) return View(request);
 
@@ -59,6 +61,15 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			}
 
 			return RedirectToAction("index");
+		}
+
+		public async Task<IActionResult> Delete(DeleteStudentCommandRequest request)
+		{
+			var result = await _mediator.Send(request);
+			if (result.Success)
+				return Ok();
+			else
+				return Content(result.ErrorMessage);
 		}
 	}
 }

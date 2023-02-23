@@ -1,0 +1,12 @@
+﻿@using SIS.Application.Features.Queries.EventQuery.GetAll;
+@using SIS.Domain.Entities;
+@model GetAllEventQueryResponse
+
+<a asp-action="create">Create New</a>
+
+<ul>
+	@foreach(Event obj in Model.Events)
+	{
+		<li>@obj.Name @obj.StartedDate @obj.EndDate <a asp-action="delete" asp-route-id="@obj.Id">Del</a></li>
+	}
+</ul>
