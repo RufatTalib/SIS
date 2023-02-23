@@ -14,7 +14,7 @@ namespace SIS.Persistance.Repositories
 {
 	public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
 	{
-		private readonly SISDbContext _context;
+		protected readonly SISDbContext _context;
 
 		public DbSet<T> Table => _context.Set<T>();
 

@@ -1,4 +1,5 @@
-﻿using SIS.Application.Repositories.GroupRepository;
+﻿using Microsoft.EntityFrameworkCore;
+using SIS.Application.Repositories.GroupRepository;
 using SIS.Domain.Entities;
 using SIS.Persistance.Contexts;
 using System;
@@ -13,6 +14,11 @@ namespace SIS.Persistance.Repositories.GroupRepository
 	{
 		public GroupWriteRepository(SISDbContext context) : base(context)
 		{
+		}
+
+		public int Save()
+		{
+			return _context.SaveChanges();
 		}
 	}
 }

@@ -13,7 +13,7 @@ namespace SIS.Persistance.Repositories
 {
 	public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
 	{
-		private readonly SISDbContext _context;
+		protected readonly SISDbContext _context;
 
 		public ReadRepository(SISDbContext context)
 		{

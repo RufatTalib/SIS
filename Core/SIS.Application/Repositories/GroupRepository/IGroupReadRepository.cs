@@ -9,5 +9,7 @@ namespace SIS.Application.Repositories.GroupRepository
 {
 	public interface IGroupReadRepository : IReadRepository<Group>
 	{
+		public int Save();
+		
 	}
 }

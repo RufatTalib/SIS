@@ -14,5 +14,10 @@ namespace SIS.Persistance.Repositories.GroupRepository
 		public GroupReadRepository(SISDbContext context) : base(context)
 		{
 		}
+
+		public int Save()
+		{
+			return _context.SaveChanges();
+		}
 	}
 }

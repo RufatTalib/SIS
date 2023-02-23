@@ -54,7 +54,7 @@ namespace SIS.Application.Features.Commands.TeacherCommand.CreateTeacher
 		[StringLength(maximumLength: 255)]
 		public string Qualification { get; set; }
 
-		[Required(ErrorMessage = "Please, enter qualification of teacher !")]
+		[Required(ErrorMessage = "Please, enter experience of teacher !")]
 		public int Experience { get; set; }
 
 		public Gender Gender { get; set; }
