@@ -276,6 +276,9 @@ namespace SIS.Persistance.Migrations
                     b.Property<DateTime?>("RemovedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
                     b.Property<string>("StudentId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");

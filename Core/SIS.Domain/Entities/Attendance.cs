@@ -1,4 +1,5 @@
 ﻿using SIS.Domain.Entities.Common;
+using SIS.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace SIS.Domain.Entities
 
 		public int LessonEventId { get; set; }
 		public LessonEvent? LessonEvent { get; set; }
+
+		public AttendState State { get; set; }
 	}
 }

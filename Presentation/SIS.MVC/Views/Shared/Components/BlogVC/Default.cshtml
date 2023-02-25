@@ -1,0 +1,43 @@
+﻿@using SIS.Domain.Entities;
+@model List<Blog>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header align-items-center d-flex">
+				<h4 class="card-title mb-0 flex-grow-1">Blogs</h4>
+			</div>
+
+			<div class="card-body">
+				<p class="text-muted mb-4">
+					All posted blog in our world
+				</p>
+				@foreach (Blog blog in Model)
+				{
+					<div class="d-flex align-items-start text-muted mb-4">
+						<div class="flex-shrink-0 me-3">
+							<img src="~/ProfilePhotos/@blog.Owner.ImageSrc" class="avatar-sm rounded" alt="Owner Image">
+						</div>
+						<div class="flex-grow-1">
+							<h5 class="fs-14">@blog.Title</h5>
+							<div class="row">
+								<div class="col-sm">
+									@blog.Description
+								</div>
+								<div style="width:128px;height:128px;" class="col-sm p-1">
+									<img src="~/BlogPhotos/@blog.ImageUrl" alt="Blog Image" 
+									style="max-height:100%;">
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				}
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

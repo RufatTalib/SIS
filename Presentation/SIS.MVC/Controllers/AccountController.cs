@@ -1,5 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SIS.Application.Features.Commands.AttendanceCommand.UpdateAttendance;
+using SIS.Application.Features.Queries.AttendanceQuery.GetAll;
+using SIS.Application.Repositories.AttendanceRepository;
+using SIS.Application.Repositories.GroupRepository;
+using SIS.Application.Repositories.LessonEventRepository;
 using SIS.Application.ViewModels;
 using SIS.Domain.Entities;
 using SIS.Persistance.Contexts;
@@ -11,12 +18,24 @@ namespace SIS.MVC.Controllers
 		private readonly UserManager<AppUser> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
 		private readonly SignInManager<AppUser> _signInManager;
+		private readonly IMediator _mediator;
+		private readonly ILessonEventReadRepository _lessonEventReadRepository;
+		private readonly IGroupReadRepository _groupReadRepository;
 
-		public AccountController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager)
+		public AccountController(
+            UserManager<AppUser> userManager, 
+            RoleManager<IdentityRole> roleManager, 
+            SignInManager<AppUser> signInManager,
+            IMediator mediator,
+            ILessonEventReadRepository lessonEventReadRepository,
+            IGroupReadRepository groupReadRepository)
         {
 			_userManager = userManager;
 			_roleManager = roleManager;
 			_signInManager = signInManager;
+			_mediator = mediator;
+			_lessonEventReadRepository = lessonEventReadRepository;
+			_groupReadRepository = groupReadRepository;
 		}
 
         /*public async Task<IActionResult> CreateRoles()
@@ -84,6 +103,66 @@ namespace SIS.MVC.Controllers
             if (user == null) return NotFound();
 
             return View(user);
+        }
+
+        public async Task<IActionResult> Attendances(GetAllAttendanceQueryRequest request)
+        {
+			ViewData["NoLesson"] = false;
+			var response = await _mediator.Send(request);
+
+            if (response.Attendances is null)
+            {
+                ViewData["NoLesson"] = true;
+                return View();
+            }
+			
+			return View(new UpdateAttendanceCommandRequest
+            {
+                Attendances = response?.Attendances,
+                LessonId = response?.LessonId
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Attendances(UpdateAttendanceCommandRequest request)
+        {
+            await _mediator.Send(request);			
+
+            return RedirectToAction("TimeTable");
+        }
+
+        public async Task<IActionResult> TimeTable()
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+                return BadRequest();
+
+
+            string username = HttpContext.User.Identity.Name;
+            AppUser? user = await _userManager.Users
+                .Where(x => x.IsDeleted == false && x.UserName == username)
+                .Include(x => x.Groups)
+                .ThenInclude(x => x.LessonEvents)
+                .ThenInclude(x => x.Subject)
+                .FirstOrDefaultAsync();
+
+            if(HttpContext.User.IsInRole("Admin") || HttpContext.User.IsInRole("SuperAdmin"))
+            {
+                return RedirectToAction("myprofile");
+            }
+
+
+            if (user == null) return NotFound();
+
+            List<LessonEvent> events = new();
+
+            user.Groups.Where(x => x.IsDeleted == false).ToList()
+                .ForEach(x => 
+                events.AddRange(
+                    x.LessonEvents.Where(e => e.IsDeleted == false).ToList() 
+                    ) 
+                );
+
+			return View(events);
         }
 
         public async Task<IActionResult> Logout()

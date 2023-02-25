@@ -1,0 +1,64 @@
+﻿@using SIS.Application.Features.Commands.AttendanceCommand.UpdateAttendance;
+@using SIS.Domain.Enumerations;
+@model UpdateAttendanceCommandRequest
+
+@if ((bool)ViewData["NoLesson"])
+{
+	<div class="col-lg-6">
+		<h3>No Lesson !</h3>
+	</div>
+}
+else
+{
+	<form action="Attendances" method="post">
+		<div class="col-lg-6">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="card-title">Attendances</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover mb-0">
+							<thead>
+								<tr>
+									<th>Firstname</th>
+									<th>Lastname</th>
+									<th>Participated</th>
+								</tr>
+							</thead>
+							<tbody>
+								@for(int i=0; i<Model.Attendances.Count; i++)
+								{
+									<tr>
+										<td>@Model.Attendances[i].Student?.FirstName</td>
+										<td>@Model.Attendances[i].Student?.LastName</td>
+										<td>
+											<select asp-for="@(Model.Attendances[i].State)">
+												@foreach (AttendState s in (AttendState[])Enum.GetValues(typeof(AttendState)))
+												{
+													@if(Model.Attendances[i].State == s)
+													{
+														<option value="@s" selected="selected">@s</option>
+													}
+													else
+													{
+														<option value="@s">@s</option>
+													}
+													
+												}
+											</select>
+										<td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+					<input asp-for="LessonId" hidden>
+				</div>
+
+				<button type="submit">Done</button>
+			</div>
+		</div>
+	</form>
+}
+

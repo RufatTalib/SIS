@@ -110,7 +110,104 @@
 			</ul>
 		</div>
 
-		@RenderBody()
+		@if (User.Identity.IsAuthenticated)
+		{
+			<div class="page-wrapper">
+				<div class="content container-fluid">
+
+					<div class="sidebar" id="sidebar">
+
+						<div class="sidebar-inner slimscroll">
+							<div id="sidebar-menu" class="sidebar-menu">
+								<ul>
+									<li class="menu-title">
+										<span>Main Menu</span>
+									</li>
+
+									@if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+									{
+										@if (User.IsInRole("SuperAdmin"))
+										{
+											<li><a asp-action="index" asp-controller="admin"><i class="fas fa-user"></i> <span>Admins</span></a></li>
+										}
+
+										<li><a asp-action="index" asp-controller="student" asp-area="manage"><i class="fas fa-graduation-cap"></i> <span>Students</span></a></li>
+										<li><a asp-action="index" asp-controller="teacher" asp-area="manage"><i class="fas fa-chalkboard-teacher"></i> <span>Teachers</span></a></li>
+										<li><a asp-action="index" asp-controller="group" asp-area="manage"><i class="fas fa-users"></i> <span>Groups</span></a></li>
+
+										<li><a asp-action="index" asp-controller="department" asp-area="manage"><i class="fas fa-building"></i> <span>Departments</span></a></li>
+										<li><a asp-action="index" asp-controller="subject" asp-area="manage"><i class="fas fa-book-reader"></i> <span>Subjects</span></a></li>
+										<li class="menu-title">
+											<span>Management</span>
+										</li>
+										<li>
+											<a asp-action="index" asp-controller="exam" asp-area="manage"><i class="fas fa-clipboard-list"></i> <span>All Exam list</span></a>
+										</li>
+										<li>
+											<a asp-action="index" asp-controller="event" asp-area="manage"><i class="fas fa-calendar-day"></i> <span>All Events</span></a>
+										</li>
+										<li>
+											<a asp-action="index" asp-controller="lessonevent" asp-area="manage"><i class="fas fa-calendar-day"></i> <span>Lesson Events</span></a>
+										</li>
+										<li>
+											<a asp-action="index" asp-controller="timetable" asp-area="manage"><i class="fas fa-table"></i> <span>Time Table</span></a>
+										</li>
+										<li><a asp-action="index" asp-controller="blog" asp-area="manage"><i class="fa fa-newspaper"></i> <span>All blogs</span></a></li>
+
+										<li><a asp-action="index" asp-controller="slider" asp-area="manage"><i class="fa fa-th"></i> <span>All Sliders</span></a></li>
+
+
+
+										@if ( User.IsInRole("SuperAdmin") )
+										{
+											<li>
+												<a asp-action="index" asp-controller="setting" asp-area="manage"><i class="fas fa-cog"></i> <span>Settings</span></a>
+											</li>
+										}
+									}
+									else
+									{
+										<li><a asp-action="group" asp-controller="account"><i class="fas fa-users"></i> <span>Groups</span></a></li>
+
+										<li>
+											<a asp-action="exam" asp-controller="account"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+										</li>
+
+										<li>
+											<a asp-action="timetable" asp-controller="account"><i class="fas fa-table"></i> <span>Time Table</span></a>
+										</li>
+										<li><a asp-action="blog" asp-controller="account"><i class="fa fa-newspaper"></i> <span>Blogs</span></a></li>
+
+										@if(User.IsInRole("Teacher"))
+										{
+											<li><a asp-action="attendances" asp-controller="account"><i class="fa fa-check"></i> <span>Attendances</span></a></li>
+
+										}
+									}
+
+									
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					@RenderBody()
+
+				</div>
+
+
+				<footer>
+					<p>Copyright © 2023 Kochrufet.</p>
+				</footer>
+
+			</div>
+		}
+		else
+		{
+			@RenderBody()
+		}
 
 	</div>
 

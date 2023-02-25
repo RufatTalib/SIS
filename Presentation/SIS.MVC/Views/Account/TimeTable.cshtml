@@ -1,0 +1,32 @@
+﻿@using SIS.Domain.Entities;
+@model List<LessonEvent>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<ul class="timeline">
+					@for (int i = 0; i < Model.Count; i++)
+					{
+						<li class="@(i%2 == 0 ? "":"timeline-inverted")">
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">@Model[i].Subject?.Name</h4>
+								</div>
+								<div class="timeline-body">
+									<p>
+										@Model[i].Group?.Name
+										@Model[i].StartedDate.ToString("dddd")
+										@Model[i].StartedDate.ToString("t")
+									</p>
+								</div>
+							</div>
+						</li>
+
+					}
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+﻿@using SIS.Domain.Entities;
+@model List<Event>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="cd-horizontal-timeline">
+					<div class="timeline">
+						<div class="events-wrapper">
+							<div class="events">
+								<ol>
+									@{
+										bool val = false;
+									}
+									@foreach (Event e in Model)
+									{
+										<li>
+											<a href="#0" data-date="@e.StartedDate.ToString("d")" class="@(val == false ? "selected":"")">
+												@e.StartedDate.ToString("dd MMM")
+											</a>
+										</li>
+
+										val = true;
+									}
+								</ol>
+								<span class="filling-line" aria-hidden="true"></span>
+							</div>
+
+						</div>
+						<ul class="cd-timeline-navigation">
+							<li><a href="#0" class="prev inactive">Prev</a></li>
+							<li><a href="#0" class="next">Next</a></li>
+						</ul>
+
+					</div>
+
+					<div class="events-content">
+						<ol>
+							@{
+								val = false;
+							}
+							@foreach (Event e in Model)
+							{
+								<li class="@(val == false ? "selected":"")" data-date="@e.StartedDate.ToString("d")">
+									<h3><small>@e.Name</small></h3>
+									<p class="m-t-40">
+										Lorem ipsum dolor sit amet,
+										consectetur adipisicing elit. Illum praesentium officia,
+										fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur
+										aspernatur at, eaque hic repellendus sit dicta consequatur quae,
+										ut harum ipsam molestias maxime non nisi reiciendis eligendi!
+										Doloremque quia pariatur harum ea amet quibusdam quisquam, quae,
+										temporibus dolores porro doloribus.
+									</p>
+								</li>
+								val = true;
+							}
+						</ol>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

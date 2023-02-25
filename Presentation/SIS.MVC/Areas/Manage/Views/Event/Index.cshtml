@@ -1,12 +1,40 @@
 ﻿@using SIS.Application.Features.Queries.EventQuery.GetAll;
 @using SIS.Domain.Entities;
 @model GetAllEventQueryResponse
-
-<a asp-action="create">Create New</a>
-
-<ul>
-	@foreach(Event obj in Model.Events)
+@section HeadSection
 	{
-		<li>@obj.Name @obj.StartedDate @obj.EndDate <a asp-action="delete" asp-route-id="@obj.Id">Del</a></li>
+	<script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+}
+
+
+<div class="row align-items-center">
+	<div class="col"></div>
+	<div class="col-auto text-end float-end ms-auto">
+		<a asp-action="create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+	</div>
+</div>
+
+<div class="row pt-1">
+	@foreach (Event obj in Model.Events)
+	{
+		<div class="col-md-4 col-sm-6">
+			<div class="ribbon-wrapper card">
+				<div class="card-body">
+					<a asp-action="delete" asp-route-id="@obj.Id" id="deletebtn">
+						<div class="ribbon ribbon-primary  ribbon-right">
+							Delete
+						</div>
+					</a>
+					
+					<p>@obj.Name <strong>@obj.StartedDate.ToString("d") - @obj.EndDate.ToString("d")</strong></p>
+				</div>
+			</div>
+		</div>
 	}
-</ul>
+</div>
+
+@section BodySection
+{
+	<script src="~/assets/js/swalTrigger.js"></script>
+}
+

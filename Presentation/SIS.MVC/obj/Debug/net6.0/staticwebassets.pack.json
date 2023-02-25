@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\BlogPhotos\\81602add-9b5e-4131-8aba-c296a754ea80blog-3.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\8f129567-2cd9-4936-82e3-2b26b9985192blog-5.jpg",
+      "PackagePath": "staticwebassets\\BlogPhotos\\8f129567-2cd9-4936-82e3-2b26b9985192blog-5.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\97e097af-de0c-4d41-a30e-393bca5856e4blog-3.jpg",
       "PackagePath": "staticwebassets\\BlogPhotos\\97e097af-de0c-4d41-a30e-393bca5856e4blog-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\BlogPhotos\\cdc01f0e-e94c-472e-abd0-44d49c3706e8blog-1.jpg",
+      "PackagePath": "staticwebassets\\BlogPhotos\\cdc01f0e-e94c-472e-abd0-44d49c3706e8blog-1.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\0b73716c-7452-4528-8c7c-a5e9581c96d1avatar-17.jpg",
@@ -85,12 +93,24 @@
       "PackagePath": "staticwebassets\\SliderPhotos\\110e5cd4-8dec-43f0-80b2-ab5ff305fec6blog-detail.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\438c1439-188b-4ea1-a40e-2f7f0671c5f5blog-1.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\438c1439-188b-4ea1-a40e-2f7f0671c5f5blog-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\8d54e7cf-467e-47a5-b1eb-557d57eba6dfblog-6.jpg",
       "PackagePath": "staticwebassets\\SliderPhotos\\8d54e7cf-467e-47a5-b1eb-557d57eba6dfblog-6.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\cc56d399-ab0a-443c-a566-d814c2a6262ablog-5.jpg",
       "PackagePath": "staticwebassets\\SliderPhotos\\cc56d399-ab0a-443c-a566-d814c2a6262ablog-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\ea2c0b8d-5fa7-48a8-ab29-77c7ac588a3bblog-2.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\ea2c0b8d-5fa7-48a8-ab29-77c7ac588a3bblog-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\fc34c739-e0ea-478e-aa9c-960940600e30blog-3.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\fc34c739-e0ea-478e-aa9c-960940600e30blog-3.jpg"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\css\\bootstrap-datetimepicker.min.css",
@@ -2103,6 +2123,10 @@
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\js\\script.js",
       "PackagePath": "staticwebassets\\assets\\js\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\js\\swalTrigger.js",
+      "PackagePath": "staticwebassets\\assets\\js\\swalTrigger.js"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\plugins\\apexchart\\apexcharts.min.js",

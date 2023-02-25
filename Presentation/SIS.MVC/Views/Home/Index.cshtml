@@ -1,65 +1,244 @@
-﻿@using SIS.Application.Features.Queries.SliderQuery.GetAll;
+﻿	@using SIS.Application.Features.Queries.SliderQuery.GetAll;
 @using SIS.Domain.Entities;
+<div class="pt-5"></div>
+<div class="container pt-5">
+	@await Component.InvokeAsync("SliderVC")
+</div>
 
-@await Component.InvokeAsync("SliderVC");
+<div class="row">
 
-<div class="container">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<ul class="timeline">
+					<li>
+						<div class="timeline-badge success">
+							<i class="fas fa-user"></i>
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">Sevgi</h4>
+							</div>
+							<div class="timeline-body">
+								<p>
+									Biz tələbələrimizi sevirik !
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="timeline-inverted">
+						<div class="timeline-badge warning">
+							<i class="fas fa-users"></i>
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">İnam </h4>
+							</div>
+							<div class="timeline-body">
+								<p>
+									Bizim tələbələrimizə inanırıq !
+								</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="timeline-badge danger">
+							<i class="fas fa-gift"></i>
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">Bilik</h4>
+							</div>
+							<div class="timeline-body">
+								<p>
+									Biz tələbələrimizə bilik veririk !
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="timeline-inverted">
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">Gəlir</h4>
+							</div>
+							<div class="timeline-body">
+								<p>
+									Biz tələbələrimizin uğurlarını dəyərləndiririk !
+								</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="timeline-badge info">
+							<i class="fa fa-save"></i>
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">Zaman</h4>
+							</div>
+							<div class="timeline-body">
+								<p>
+									Biz tələbələrimizin zamanına qənaət edirik !
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="timeline-inverted">
+						<div class="timeline-badge success">
+							<i class="fa fa-graduation-cap"></i>
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title">Diplom</h4>
+							</div>
+							<div class="timeline-body">
+								<p>
+									Biz tələbələrimizə diplom veririk !
+								</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="container pt-5">
 	<h3>Info</h3>
-	<p>asdads</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra mauris ligula, eu mollis ligula malesuada nec. Aenean dictum nunc eu turpis bibendum, et egestas sapien pulvinar. Vivamus ut interdum est. Vivamus sem purus, pretium sit amet odio tincidunt, hendrerit consequat nunc. Pellentesque mattis est non felis fermentum consequat. Mauris suscipit ultricies sollicitudin. Sed porttitor nisi ac porta tristique. Nunc posuere ultrices sapien. Aenean non est ac tellus egestas blandit. Donec lobortis eros et tempus tincidunt. Donec volutpat fermentum nunc, et interdum massa imperdiet non. Nam est lacus, cursus vitae faucibus eget, facilisis id tellus. Quisque vel augue est. Suspendisse nec vehicula dui. Donec gravida non felis quis consectetur. Curabitur accumsan nunc quis odio lacinia euismod.</p>
+
+
 </div>
 
-<div class="container">
-	<h3>Events</h3>
-	<p>asdads</p>
+<div class="container pt-5">
+	@await Component.InvokeAsync("EventVC")
 </div>
 
-<div class="container">
-	<h3>Facts and numbers</h3>
-	<p>asdads</p>
+<div class="container pt-5">
+	@await Component.InvokeAsync("BlogVC")
 </div>
 
-<div class="container">
-	<h3>Departments</h3>
-	<p>asdads</p>
-</div>
 
+
+<div class="container pt-5">
+	<div class="row">
+		<div class="col-xl-3 col-sm-6 col-12 d-flex">
+			<div class="card bg-comman w-100">
+				<div class="card-body">
+					<div class="db-widgets d-flex justify-content-between align-items-center">
+						<div class="db-info">
+							<h6>Students</h6>
+							<h3>50055</h3>
+						</div>
+						<div class="db-icon">
+							<img src="~/assets/img/icons/dash-icon-01.svg" alt="Dashboard Icon">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-3 col-sm-6 col-12 d-flex">
+			<div class="card bg-comman w-100">
+				<div class="card-body">
+					<div class="db-widgets d-flex justify-content-between align-items-center">
+						<div class="db-info">
+							<h6>Awards</h6>
+							<h3>50+</h3>
+						</div>
+						<div class="db-icon">
+							<img src="~/assets/img/icons/dash-icon-02.svg" alt="Dashboard Icon">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-3 col-sm-6 col-12 d-flex">
+			<div class="card bg-comman w-100">
+				<div class="card-body">
+					<div class="db-widgets d-flex justify-content-between align-items-center">
+						<div class="db-info">
+							<h6>Department</h6>
+							<h3>30+</h3>
+						</div>
+						<div class="db-icon">
+							<img src="~/assets/img/icons/dash-icon-03.svg" alt="Dashboard Icon">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-3 col-sm-6 col-12 d-flex">
+			<div class="card bg-comman w-100">
+				<div class="card-body">
+					<div class="db-widgets d-flex justify-content-between align-items-center">
+						<div class="db-info">
+							<h6>Revenue</h6>
+							<h3>$505</h3>
+						</div>
+						<div class="db-icon">
+							<img src="~/assets/img/icons/dash-icon-04.svg" alt="Dashboard Icon">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-	<!-- Section: Social media -->
-	<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-		<!-- Left -->
-		<div class="me-5 d-none d-lg-block">
-			<span>Get connected with us on social networks:</span>
-		</div>
-		<!-- Left -->
-		<!-- Right -->
-		<div>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-twitter"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-google"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-instagram"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-linkedin"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-github"></i>
-			</a>
-		</div>
-		<!-- Right -->
-	</section>
-	<!-- Section: Social media -->
+<footer class="text-center text-lg-start bg-light text-muted pt-5">
 	<!-- Section: Links  -->
+	
 	<section class="">
 		<div class="container text-center text-md-start mt-5">
 			<!-- Grid row -->
+			<div class="row">
+				<div class="col-xl-3 col-sm-6 col-12">
+					<div class="card flex-fill fb sm-box">
+						<div class="social-likes">
+							<p>Like us on facebook</p>
+							<h6>50,095</h6>
+						</div>
+						<div class="social-boxs">
+							<img src="~/assets/img/icons/social-icon-01.svg" alt="Social Icon">
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6 col-12">
+					<div class="card flex-fill twitter sm-box">
+						<div class="social-likes">
+							<p>Follow us on twitter</p>
+							<h6>48,596</h6>
+						</div>
+						<div class="social-boxs">
+							<img src="~/assets/img/icons/social-icon-02.svg" alt="Social Icon">
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6 col-12">
+					<div class="card flex-fill insta sm-box">
+						<div class="social-likes">
+							<p>Follow us on instagram</p>
+							<h6>52,085</h6>
+						</div>
+						<div class="social-boxs">
+							<img src="~/assets/img/icons/social-icon-03.svg" alt="Social Icon">
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6 col-12">
+					<div class="card flex-fill linkedin sm-box">
+						<div class="social-likes">
+							<p>Follow us on linkedin</p>
+							<h6>69,050</h6>
+						</div>
+						<div class="social-boxs">
+							<img src="~/assets/img/icons/social-icon-04.svg" alt="Social Icon">
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row mt-3">
 				<!-- Grid column -->
 				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
@@ -131,11 +310,9 @@
 		</div>
 	</section>
 	<!-- Section: Links  -->
-	<!-- Copyright -->
-	<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-		© 2021 Copyright:
-		<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-	</div>
-	<!-- Copyright -->
 </footer>
 <!-- Footer -->
+@section BodySection
+{
+	<script src="~/assets/plugins/timeline/horizontal-timeline.js"></script>
+}
