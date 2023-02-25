@@ -1,10 +1,137 @@
 ﻿@using SIS.Application.Features.Queries.LessonEventQuery.GetAll;
 @model GetAllLessonEventQueryResponse
 
-<a asp-action="create">Create New</a>
-<ul>
-	@foreach(var lesson in Model.LessonEvents)
+@section HeadSection
 	{
-		<li>@lesson.Name @lesson.Group?.Name @lesson.Subject?.Name @lesson.Period</li>
-	}
-</ul>
+	<script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card card-table">
+			<div class="card-body">
+
+				<div class="page-header">
+					<div class="row align-items-center">
+						<div class="col">
+							<h3 class="page-title">Time Table</h3>
+						</div>
+						<div class="col-auto text-end float-end ms-auto download-grp">
+							<a asp-action="download" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+							<a asp-action="create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+						<thead class="student-thread">
+							<tr>
+								<th>Teacher Name</th>
+								<th>Group</th>
+								<th>Subject</th>
+								<th>Room Number</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Date</th>
+								<th class="text-end">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach(var lesson in Model.LessonEvents)
+							{
+								<tr>
+									<td>
+										<h2 class="table-avatar">
+											@if(lesson.Teacher is not null)
+											{
+												<a class="avatar avatar-sm me-2">
+													<img class="avatar-img rounded-circle" src="~/ProfilePhotos/@lesson.Teacher?.ImageSrc" alt="User Image">
+												</a>
+												<a>@lesson.Teacher?.FirstName @lesson.Teacher?.LastName</a>
+											}
+											else
+											{
+												<a asp-action="update" asp-route-id="@lesson.Id">Teacher not assigned !</a>
+											}
+										</h2>
+									</td>
+									<td>@lesson.Group?.Name</td>
+									<td>@lesson.Subject?.Name</td>
+									<td>@lesson.ClassNumber</td>
+									<td>@lesson.StartedDate.ToString("HH:mm tt")</td>
+									<td>@lesson.EndDate.ToString("HH:mm tt")</td>
+									<td>@lesson.EndDate.ToString("dd MMM yyyy")</td>
+									<td class="text-end">
+										<div class="actions">
+											<a asp-action="update" asp-route-id="@lesson.Id" class="btn btn-sm bg-danger-light">
+												<i class="feather-edit"></i>
+											</a>
+											<a asp-action="delete" asp-route-id="@lesson.Id" id="deletebtn" class="btn btn-sm bg-success-light me-2">
+												<i class="feather-delete"></i>
+											</a>
+										</div>
+									</td>
+								</tr>
+
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section BodySection
+	{
+	<script>
+		let btns = document.querySelectorAll("#deletebtn");
+
+		btns.forEach(x => {
+			let url = x.getAttribute("href");
+			x.addEventListener("click", function (e) {
+				e.preventDefault();
+
+				Swal.fire({
+					title: 'Are you sure?',
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Yes, delete it!'
+				}).then((result) => {
+					if (result.isConfirmed) {
+
+						fetch(url).then(
+							response => {
+								if (response.status == 200) {
+									x.parentElement.parentElement.parentElement.remove();
+
+									Swal.fire(
+										'Deleted!',
+										'Department has been deleted.',
+										'success'
+									);
+								}
+								else {
+									Swal.fire({
+										icon: 'error',
+										title: 'Couldn\'t delete!',
+										text: 'Something went wrong!'
+									})
+								}
+							}
+						);
+
+
+					}
+				})
+
+			});
+
+		});
+
+	</script>
+}

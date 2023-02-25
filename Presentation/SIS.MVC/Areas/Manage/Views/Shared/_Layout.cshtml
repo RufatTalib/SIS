@@ -173,10 +173,11 @@
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title">Teachers</h3>
+							<h3 class="page-title">@ViewData["title"]</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a asp-action="index">Dashboard</a></li>
-								<li class="breadcrumb-item active">@ViewData["Location"]</li>
+								<li class="mx-2"><a asp-action="index">@ViewData["nav1"]</a></li>
+								<span>/</span>
+								<li class="mx-2 active">@ViewData["nav2"]</li>
 							</ul>
 						</div>
 					</div>

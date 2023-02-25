@@ -23,8 +23,11 @@ namespace SIS.Application.Features.Queries.LessonEventQuery.GetAll
         }
         public async Task<GetAllLessonEventQueryResponse> Handle(GetAllLessonEventQueryRequest request, CancellationToken cancellationToken)
         {
-            IQueryable<LessonEvent> query = _lessonEventReadRepository.Table.AsQueryable().Where(x => x.IsDeleted == false)
-                .Include(x => x.Subject).Include(x => x.Group);
+            IQueryable<LessonEvent> query = _lessonEventReadRepository.Table.AsQueryable()
+                .Where(x => x.IsDeleted == false)
+                .Include(x => x.Subject)
+                .Include(x => x.Group)
+                .Include(x => x.Teacher);
 
             if (request.Page == 0) request.Page = 1;
             if (request.PageSize == 0) request.PageSize = 10;

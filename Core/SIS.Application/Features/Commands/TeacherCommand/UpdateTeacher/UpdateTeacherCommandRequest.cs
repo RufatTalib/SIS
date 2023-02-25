@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using SIS.Domain.Entities;
 using SIS.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
@@ -26,13 +28,6 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 		[StringLength(maximumLength: 30, MinimumLength = 6)]
 		public string UserName { get; set; }
 
-		[Required(ErrorMessage = "Please, enter password !")]
-		[DataType(DataType.Password)]
-		public string Password { get; set; }
-
-		[Required(ErrorMessage = "Please, enter confirm password !")]
-		[Compare("Password", ErrorMessage = "Confirm password doesn't match, Type again !")]
-		public string PasswordConfirmed { get; set; }
 
 		[Required(ErrorMessage = "Please, enter your email adress !")]
 		[DataType(DataType.EmailAddress)]
@@ -46,26 +41,28 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 		[StringLength(maximumLength: 255)]
 		public string Adress { get; set; }
 
-		public int DepartmentId { get; set; }
+		public int? DepartmentId { get; set; }
 
 		[Required(ErrorMessage = "Please, enter the classroom number specified to the teacher !")]
-		public int ClassNumber { get; set; }
+		public int? ClassNumber { get; set; }
 
 		[Required(ErrorMessage = "Please, enter qualification of teacher !")]
 		[StringLength(maximumLength: 255)]
 		public string Qualification { get; set; }
 
 		[Required(ErrorMessage = "Please, enter experience of teacher !")]
-		public int Experience { get; set; }
+		public int? Experience { get; set; }
 
-		public Gender Gender { get; set; }
+		public Gender? Gender { get; set; }
 
 		[Required(ErrorMessage = "Please, enter your birthdate !")]
-		[DataType(DataType.Date)]
-		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-		public DateTime BirthDate { get; set; }
 
-		[Required(ErrorMessage = "Please, enter your photo !")]
+		[BindProperty, DataType(DataType.Date)]
+		public DateTime? BirthDate { get; set; }
+
 		public IFormFile? Image { get; set; }
+
+
+		public List<int>? SubjectIds { get; set; }
 	}
 }
