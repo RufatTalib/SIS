@@ -5,6 +5,7 @@ using SIS.Application.Repositories.DepartmentRepository;
 using SIS.Application.Repositories.EventRepository;
 using SIS.Application.Repositories.GroupRepository;
 using SIS.Application.Repositories.LessonEventRepository;
+using SIS.Application.Repositories.SettingRepository;
 using SIS.Application.Repositories.SliderImageRepository;
 using SIS.Application.Repositories.SliderRepository;
 using SIS.Application.Repositories.SubjectRepository;
@@ -14,6 +15,7 @@ using SIS.Persistance.Repositories.DepartmentRepository;
 using SIS.Persistance.Repositories.EventRepository;
 using SIS.Persistance.Repositories.GroupRepository;
 using SIS.Persistance.Repositories.LessonEventRepository;
+using SIS.Persistance.Repositories.SettingRepository;
 using SIS.Persistance.Repositories.SliderImageRepository;
 using SIS.Persistance.Repositories.SliderRepository;
 using SIS.Persistance.Repositories.SubjectRepository;
@@ -58,6 +60,11 @@ namespace SIS.Persistance.Extentions
 
 			services.AddScoped<IAttendanceReadRepository, AttendanceReadRepository>();
 			services.AddScoped<IAttendanceWriteRepository, AttendanceWriteRepository>();
+
+			services.AddScoped<ISettingReadRepository, SettingReadRepository>();
+			services.AddScoped<ISettingWriteRepository, SettingWriteRepository>();
+
+
 
 		}
 	}

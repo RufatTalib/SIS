@@ -128,7 +128,7 @@
 									{
 										@if (User.IsInRole("SuperAdmin"))
 										{
-											<li><a asp-action="index" asp-controller="admin"><i class="fas fa-user"></i> <span>Admins</span></a></li>
+											<li><a asp-action="index" asp-controller="admin" asp-area="manage"><i class="fas fa-user"></i> <span>Admins</span></a></li>
 										}
 
 										<li><a asp-action="index" asp-controller="student" asp-area="manage"><i class="fas fa-graduation-cap"></i> <span>Students</span></a></li>

@@ -25,5 +25,14 @@ namespace SIS.Persistance.Contexts
         public DbSet<Event> Events { get; set; }
         public DbSet<LessonEvent> LessonEvents { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
-    }
+        public DbSet<Setting> Settings { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			base.OnModelCreating(builder);
+
+            new DbInitializer(builder).Seed();
+		}
+
+	}
 }

@@ -1,12 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using SIS.Application.Features.Queries.SettingQuery.GetForHome;
 
 namespace SIS.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+		private readonly IMediator _mediator;
+
+		public HomeController(IMediator mediator)
         {
-            return View();
+			_mediator = mediator;
+		}
+        public async Task<IActionResult> Index(GetForHomeSettingQueryRequest request)
+        {
+            return View(await _mediator.Send(request));
         }
     }
 }

@@ -442,6 +442,134 @@ namespace SIS.Persistance.Migrations
                     b.ToTable("Groups");
                 });
 
+            modelBuilder.Entity("SIS.Domain.Entities.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Settings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 13,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9616),
+                            IsDeleted = false,
+                            Key = "Info",
+                            Value = "Example information message"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9622),
+                            IsDeleted = false,
+                            Key = "Awards",
+                            Value = "100"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9623),
+                            IsDeleted = false,
+                            Key = "FacebookFollowerCount",
+                            Value = "100"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9624),
+                            IsDeleted = false,
+                            Key = "InstagramFollowerCount",
+                            Value = "100"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9625),
+                            IsDeleted = false,
+                            Key = "TwitterFollowerCount",
+                            Value = "100"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9626),
+                            IsDeleted = false,
+                            Key = "LinkedInFollowerCount",
+                            Value = "100"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9628),
+                            IsDeleted = false,
+                            Key = "Adress",
+                            Value = "Example Adress"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9629),
+                            IsDeleted = false,
+                            Key = "Gmail",
+                            Value = "example@gmail.com"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9631),
+                            IsDeleted = false,
+                            Key = "Phone",
+                            Value = "012 000 00 00"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9632),
+                            IsDeleted = false,
+                            Key = "Fax",
+                            Value = "012 000 00 00"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9633),
+                            IsDeleted = false,
+                            Key = "Name",
+                            Value = "Company Name"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9635),
+                            IsDeleted = false,
+                            Key = "Logo",
+                            Value = "~/assets/img/logo.png"
+                        });
+                });
+
             modelBuilder.Entity("SIS.Domain.Entities.Slider", b =>
                 {
                     b.Property<int>("Id")

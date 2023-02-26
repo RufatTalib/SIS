@@ -1,5 +1,9 @@
-﻿	@using SIS.Application.Features.Queries.SliderQuery.GetAll;
+﻿@using SIS.Application.Features.Queries.SettingQuery.GetForHome;
+@using SIS.Application.Features.Queries.SliderQuery.GetAll;
 @using SIS.Domain.Entities;
+
+@model GetForHomeSettingQueryResponse
+
 <div class="pt-5"></div>
 <div class="container pt-5">
 	@await Component.InvokeAsync("SliderVC")
@@ -107,7 +111,7 @@
 
 <div class="container pt-5">
 	<h3>Info</h3>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pharetra mauris ligula, eu mollis ligula malesuada nec. Aenean dictum nunc eu turpis bibendum, et egestas sapien pulvinar. Vivamus ut interdum est. Vivamus sem purus, pretium sit amet odio tincidunt, hendrerit consequat nunc. Pellentesque mattis est non felis fermentum consequat. Mauris suscipit ultricies sollicitudin. Sed porttitor nisi ac porta tristique. Nunc posuere ultrices sapien. Aenean non est ac tellus egestas blandit. Donec lobortis eros et tempus tincidunt. Donec volutpat fermentum nunc, et interdum massa imperdiet non. Nam est lacus, cursus vitae faucibus eget, facilisis id tellus. Quisque vel augue est. Suspendisse nec vehicula dui. Donec gravida non felis quis consectetur. Curabitur accumsan nunc quis odio lacinia euismod.</p>
+	<p>@Model.CompanyDescription</p>
 
 
 </div>
@@ -145,7 +149,7 @@
 					<div class="db-widgets d-flex justify-content-between align-items-center">
 						<div class="db-info">
 							<h6>Awards</h6>
-							<h3>50+</h3>
+							<h3>@Model.AwardCount+</h3>
 						</div>
 						<div class="db-icon">
 							<img src="~/assets/img/icons/dash-icon-02.svg" alt="Dashboard Icon">
@@ -189,7 +193,7 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted pt-5">
 	<!-- Section: Links  -->
-	
+
 	<section class="">
 		<div class="container text-center text-md-start mt-5">
 			<!-- Grid row -->
@@ -198,7 +202,7 @@
 					<div class="card flex-fill fb sm-box">
 						<div class="social-likes">
 							<p>Like us on facebook</p>
-							<h6>50,095</h6>
+							<h6>@Model.FacebookFollowerCount</h6>
 						</div>
 						<div class="social-boxs">
 							<img src="~/assets/img/icons/social-icon-01.svg" alt="Social Icon">
@@ -209,7 +213,7 @@
 					<div class="card flex-fill twitter sm-box">
 						<div class="social-likes">
 							<p>Follow us on twitter</p>
-							<h6>48,596</h6>
+							<h6>@Model.TwitterFollowerCount</h6>
 						</div>
 						<div class="social-boxs">
 							<img src="~/assets/img/icons/social-icon-02.svg" alt="Social Icon">
@@ -220,7 +224,7 @@
 					<div class="card flex-fill insta sm-box">
 						<div class="social-likes">
 							<p>Follow us on instagram</p>
-							<h6>52,085</h6>
+							<h6>@Model.InstagramFollowerCount</h6>
 						</div>
 						<div class="social-boxs">
 							<img src="~/assets/img/icons/social-icon-03.svg" alt="Social Icon">
@@ -231,7 +235,7 @@
 					<div class="card flex-fill linkedin sm-box">
 						<div class="social-likes">
 							<p>Follow us on linkedin</p>
-							<h6>69,050</h6>
+							<h6>@Model.LinkedInFollowerCount</h6>
 						</div>
 						<div class="social-boxs">
 							<img src="~/assets/img/icons/social-icon-04.svg" alt="Social Icon">
@@ -244,12 +248,8 @@
 				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 					<!-- Content -->
 					<h6 class="text-uppercase fw-bold mb-4">
-						<i class="fas fa-gem me-3"></i>Company name
+						<i class="fas fa-gem me-3"></i>@Model.CompanyName
 					</h6>
-					<p>
-						Here you can use rows and columns to organize your footer content. Lorem ipsum
-						dolor sit amet, consectetur adipisicing elit.
-					</p>
 				</div>
 				<!-- Grid column -->
 				<!-- Grid column -->
@@ -259,16 +259,16 @@
 						Products
 					</h6>
 					<p>
-						<a href="#!" class="text-reset">Angular</a>
+						<a href="#!" class="text-reset">Our Team</a>
 					</p>
 					<p>
-						<a href="#!" class="text-reset">React</a>
+						<a href="#!" class="text-reset">Our Job List</a>
 					</p>
 					<p>
-						<a href="#!" class="text-reset">Vue</a>
+						<a href="#!" class="text-reset">Ads</a>
 					</p>
 					<p>
-						<a href="#!" class="text-reset">Laravel</a>
+						<a href="#!" class="text-reset">Policy</a>
 					</p>
 				</div>
 				<!-- Grid column -->
@@ -282,12 +282,6 @@
 						<a href="#!" class="text-reset">Pricing</a>
 					</p>
 					<p>
-						<a href="#!" class="text-reset">Settings</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">Orders</a>
-					</p>
-					<p>
 						<a href="#!" class="text-reset">Help</a>
 					</p>
 				</div>
@@ -296,13 +290,13 @@
 				<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 					<!-- Links -->
 					<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-					<p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+					<p><i class="fas fa-home me-3"></i> @Model.Adress</p>
 					<p>
 						<i class="fas fa-envelope me-3"></i>
-						info@example.com
+						@Model.Gmail
 					</p>
-					<p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-					<p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+					<p><i class="fas fa-phone me-3"></i> @Model.Phone</p>
+					<p><i class="fas fa-print me-3"></i> @Model.Fax</p>
 				</div>
 				<!-- Grid column -->
 			</div>
@@ -313,6 +307,6 @@
 </footer>
 <!-- Footer -->
 @section BodySection
-{
+	{
 	<script src="~/assets/plugins/timeline/horizontal-timeline.js"></script>
 }
