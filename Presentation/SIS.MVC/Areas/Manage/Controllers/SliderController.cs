@@ -18,21 +18,32 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		{
 			_mediator = mediator;
 		}
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
 		public async Task<IActionResult> Index(GetAllSliderQueryRequest request)
 		{
+			ViewDataConfig("Slider", "Slider", "Index");
+
 			return View(await _mediator.Send(request));
 		}
 
 
 		public IActionResult Create()
 		{
+			ViewDataConfig("Add New", "Slider", "Create");
+
 			return View();
 		}
 
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateSliderCommandRequest request)
 		{
-            if (!ModelState.IsValid) return View(request);
+			ViewDataConfig("Add New", "Slider", "Create");
+			if (!ModelState.IsValid) return View(request);
 
             var response = await _mediator.Send(request);
 

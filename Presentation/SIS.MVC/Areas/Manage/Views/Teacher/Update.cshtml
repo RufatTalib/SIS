@@ -77,7 +77,7 @@
 						<div class="col-12 col-sm-4">
 							<div class="form-group local-forms">
 								<label>Department <span class="login-danger">*</span></label>
-								<select asp-for="DepartmentId">
+								<select asp-for="DepartmentId" class="mt-3 p-1">
 									@foreach (Department dep in (List<Department>)ViewData["Departments"])
 									{
 											<option value="@dep.Id">@dep.Name</option>
@@ -87,10 +87,14 @@
 						</div>
 
 
-						<button type="button" id="addsubjectbtn">Add Subject</button>
+						
 
-						<div id="subjects">
+						<div class="col-12 col-sm-4">
+							<button type="button" id="addsubjectbtn" class="m-1">Add Subject</button>
 
+							<div class="form-group local-forms" id="subjects">
+								
+							</div>
 						</div>
 
 						<div class="col-12">
@@ -179,9 +183,14 @@
 					`SubjectIds[${count}]`
 				);
 
+				selectNode.classList.add("m-2");
+				selectNode.classList.add("p-1");
+
+
 				for (let i = 0; i < aviableSubjects.length; i++) {
 					let num = aviableSubjects[i]["id"];
 					let optionNode = document.createElement("option");
+
 					optionNode.setAttribute("value", num.toString());
 					optionNode.innerText += aviableSubjects[i]["name"];
 

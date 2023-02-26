@@ -25,8 +25,17 @@ namespace SIS.MVC.Areas.Manage.Controllers
             _blogWriteRepository = blogWriteRepository;
         }
 
-        public async Task<IActionResult> Index(GetAllBlogQueryRequest request)
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
+
+		public async Task<IActionResult> Index(GetAllBlogQueryRequest request)
         {
+            ViewDataConfig("Blog","Blog","Index");
+
             var response = await _mediator.Send(request);
 
 			return View(response);
@@ -34,13 +43,18 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
         public IActionResult Create()
         {
-            return View();
+			ViewDataConfig("Add New", "Blog", "Create");
+
+
+			return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateBlogCommandRequest request)
         {
-            if (!ModelState.IsValid) return View(request);
+			ViewDataConfig("Add New", "Blog", "Create");
+
+			if (!ModelState.IsValid) return View(request);
 
             var response = await _mediator.Send(request);
 
@@ -56,7 +70,9 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
         public async Task<IActionResult> Update(GetByIdBlogQueryRequest request)
         {
-            var response = await _mediator.Send(request);
+			ViewDataConfig("Edit Blog", "Blog", "Update");
+
+			var response = await _mediator.Send(request);
 
             if (response.Blog is null) return NotFound();
 
@@ -72,7 +88,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UpdateBlogCommandRequest request)
         {
-            if (!ModelState.IsValid) return View(request);
+			ViewDataConfig("Edit Blog", "Blog", "Update");
+			if (!ModelState.IsValid) return View(request);
 
             var response = await _mediator.Send(request);
 

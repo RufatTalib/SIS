@@ -25,25 +25,42 @@ namespace SIS.MVC.Areas.Manage.Controllers
             _userManager = userManager;
             _createAdminCommandValidator = new CreateAdminCommandValidator();
         }
-        public async Task<IActionResult> Index(GetAllAdminQueryRequest request)
-        {   
+
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
+		public async Task<IActionResult> Index(GetAllAdminQueryRequest request)
+        {
+            ViewDataConfig("Admin","Admin","Index");
+
+
             return View(await _mediator.Send(request));
         }
 
         public async Task<IActionResult> IndexGrid(GetAllAdminQueryRequest request)
         {
-            return View(await _mediator.Send(request));
+			ViewDataConfig("Admin", "Admin", "Index");
+
+			return View(await _mediator.Send(request));
 		}
 
         public IActionResult Create()
         {
-            return View();
+			ViewDataConfig("Add New", "Admin", "Create");
+
+
+			return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateAdminCommandRequest request)
         {
-            if (!ModelState.IsValid) return View(request);
+			ViewDataConfig("Add New", "Admin", "Create");
+
+			if (!ModelState.IsValid) return View(request);
 
             var response = await _mediator.Send(request);
 
@@ -61,7 +78,10 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
         public async Task<IActionResult> Update(string id)
         {
-            AppUser user;
+			ViewDataConfig("Edit Admin", "Admin", "Update");
+
+
+			AppUser user;
 
             user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
 
@@ -86,6 +106,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UpdateAdminCommandRequest request)
         {
+			ViewDataConfig("Edit Admin", "Admin", "Update");
+
 			if (!ModelState.IsValid) return View(request);
 
 			var response = await _mediator.Send(request);

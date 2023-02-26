@@ -18,20 +18,31 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		{
 			_mediator = mediator;
 		}
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
 
 		public async Task<IActionResult> Index(GetAllGroupQueryRequest request)
 		{
+			ViewDataConfig("Group","Group","Index");
+
 			return View(await _mediator.Send(request));
 		}
 
 		public IActionResult Create()
 		{
+			ViewDataConfig("Add New", "Group", "Create");
+
 			return View();
 		}
 
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateGroupCommandRequest request)
 		{
+			ViewDataConfig("Add New", "Group", "Create");
 			if (!ModelState.IsValid) return View(request);
 
 			var response = await _mediator.Send(request);
@@ -45,6 +56,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 			return RedirectToAction("index");
 		}
+
 
 		public async Task<IActionResult> Delete(DeleteGroupCommandRequest request)
 		{

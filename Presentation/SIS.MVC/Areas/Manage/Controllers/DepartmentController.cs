@@ -27,20 +27,31 @@ namespace SIS.MVC.Areas.Manage.Controllers
             _departmentReadRepository = departmentReadRepository;
 			_departmentWriteRepository = departmentWriteRepository;
 		}
-        public async Task<IActionResult> Index(GetAllDepartmentQueryRequest request)
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
+		public async Task<IActionResult> Index(GetAllDepartmentQueryRequest request)
         {
+            ViewDataConfig("Department","Department","Index");
+
 			return View(await _mediator.Send(request));
 		}
 
         public IActionResult Create()
         {
-            return View();
+			ViewDataConfig("Add New", "Department", "Create");
+
+			return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateDepartmentCommandRequest request)
         {
-            if (!ModelState.IsValid) return View(request);
+			ViewDataConfig("Add New", "Department", "Create");
+			if (!ModelState.IsValid) return View(request);
 
             var response = await _mediator.Send(request);
 
@@ -56,7 +67,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            Department department = await _departmentReadRepository.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
+			ViewDataConfig("Edit Department", "Department", "Update");
+			Department department = await _departmentReadRepository.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
 
             if (department is null)
                 return NotFound();
@@ -75,7 +87,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UpdateDepartmentCommandRequest request)
         {
-            if (!ModelState.IsValid) return View(request);
+			ViewDataConfig("Edit Department", "Department", "Update");
+			if (!ModelState.IsValid) return View(request);
 
             var response = await _mediator.Send(request);
 

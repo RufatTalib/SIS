@@ -30,13 +30,22 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			_departmentReadRepository = departmentReadRepository;
 			_groupReadRepository = groupReadRepository;
 		}
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
 		public async Task<IActionResult> Index(GetAllStudentQueryRequest request)
 		{
+			ViewDataConfig("Student", "Student", "Index");
 			return View(await _mediator.Send(request));
 		}
 
+
 		public IActionResult Create()
 		{
+			ViewDataConfig("Add New", "Student", "Create");
 			ViewData["Departments"] = _departmentReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 			ViewData["Groups"] = _groupReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 
@@ -46,6 +55,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateStudentCommandRequest request)
 		{
+			ViewDataConfig("Add New", "Student", "Create");
 			ViewData["Departments"] = _departmentReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 			ViewData["Groups"] = _groupReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 

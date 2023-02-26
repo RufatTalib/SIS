@@ -26,19 +26,32 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			_subjectReadRepository = subjectReadRepository;
 			_subjectWriteRepository = subjectWriteRepository;
 		}
+
+		public void ViewDataConfig(string title, string nav1, string nav2)
+		{
+			ViewData["title"] = title;
+			ViewData["nav1"] = nav1;
+			ViewData["nav2"] = nav2;
+		}
 		public async Task<IActionResult> Index(GetAllSubjectQueryRequest request)
 		{
+			ViewDataConfig("Subject","Subject","Index");
+
 			return View(await _mediator.Send(request));
 		}
 
 		public IActionResult Create()
 		{
+			ViewDataConfig("Add New", "Subject", "Create");
+
 			return View();
 		}
 
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateSubjectCommandRequest request)
 		{
+			ViewDataConfig("Add New", "Subject", "Create");
+
 			if (!ModelState.IsValid) return View(request);
 
 			var response = await _mediator.Send(request);
@@ -55,6 +68,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 		public async Task<IActionResult> Update(GetByIdSubjectQueryRequest request)
 		{
+			ViewDataConfig("Edit Subject", "Subject", "Update");
+
 			var response = await _mediator.Send(request);
 
 			if (response.Subject is null) return NotFound();
@@ -65,6 +80,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Update(UpdateSubjectCommandRequest request)
 		{
+			ViewDataConfig("Edit Subject", "Subject", "Update");
 			if (!ModelState.IsValid) return View(request);
 
 			var response = await _mediator.Send(request);

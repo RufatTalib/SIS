@@ -3,44 +3,56 @@
 @using SIS.Domain.Enumerations;
 @model CreateLessonEventCommandRequest
 
-<form asp-action="create" method="post">
-	
-	<label>Name</label>
-	<input asp-for="Name"/>
+<div class="col-md-6">
+	<div class="card">
+		
+		<div class="card-body">
+			<form asp-action="create" method="post">
+				<div class="form-group">
+					<label>Name</label>
+					<input asp-for="Name" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Subject</label>
+					<select class="form-control select" asp-for="SubjectId">
+						@foreach (Subject subject in (List<Subject>)ViewData["Subjects"])
+						{
+							<option value="@subject.Id">@subject.Name</option>
+						}
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Group</label>
+					<select class="form-control select" asp-for="GroupId">
+						@foreach (Group group in (List<Group>)ViewData["Groups"])
+						{
+							<option value="@group.Id">@group.Name</option>
+						}
+					</select>
+				</div>
+				<div class="form-group">
 
-	<label>Classroom number</label>
-	<input asp-for="ClassNumber" />
+					<label>Start date</label>
+					<input asp-for="StartDate" />
 
-	<label>Start date</label>
-	<input asp-for="StartDate" />
-
-	<label>End date</label>
-	<input asp-for="EndDate" />
-
-	<label>Period</label>
-	<select class="form-control select" asp-for="Period">
-		@foreach (Period period in (Period[])Enum.GetValues(typeof(Period)))
-		{
-			<option value="@period">@period</option>
-		}
-	</select>
-
-	<label>Group</label>
-	<select class="form-control select" asp-for="GroupId">
-		@foreach (Group group in (List<Group>) ViewData["Groups"] )
-		{
-			<option value="@group.Id">@group.Name</option>
-		}
-	</select>
-
-	<label>Subject</label>
-	<select class="form-control select" asp-for="SubjectId">
-		@foreach (Subject subject in (List<Subject>)ViewData["Subjects"])
-		{
-			<option value="@subject.Id">@subject.Name</option>
-		}
-	</select>
-
-
-	<button type="submit">Create</button>
-</form>
+				</div>
+				<div class="form-group">
+					<label>End date</label>
+					<input asp-for="EndDate" />
+				</div>
+				<div class="form-group">
+					<label>Period</label>
+					<select class="form-control select" asp-for="Period">
+						@foreach (Period period in (Period[])Enum.GetValues(typeof(Period)))
+						{
+							<option value="@period">@period</option>
+						}
+					</select>
+				</div>
+				<div class="text-end">
+					<button type="submit" class="btn btn-primary">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

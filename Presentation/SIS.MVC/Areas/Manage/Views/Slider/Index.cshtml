@@ -5,11 +5,27 @@
 	{
 	<script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 }
-<a asp-action="create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+<div class="row">
+	<div class="col-md-3 text-md">
+		<a asp-action="create" class="btn btn-primary mb-3"><i class="feather-plus-circle me-1"></i> Add New</a>
+	</div>
+</div>
 <div class="col-lg-6">
 	@foreach (Slider model in Model.Sliders)
 	{
 		<div class="card">
+			<div class="card-header">
+				<div class="container" style="text-align:end;">
+					<a asp-action="update" asp-route-id="@(model.Id)" class="btn btn-sm bg-danger-light">
+						<i class="feather-edit"></i>
+					</a>
+					<a asp-action="delete" asp-route-id="@(model.Id)" id="deletebtn" class="btn btn-sm bg-success-light me-2">
+						<i class="feather-delete"></i>
+					</a>
+
+				</div>
+
+			</div>
 			<div class="card-body">
 				<div id="carouselExampleCaption" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-inner" role="listbox">
@@ -35,12 +51,7 @@
 					</a>
 				</div>
 			</div>
-			<a asp-action="update" asp-route-id="@(model.Id)" class="btn btn-sm bg-danger-light">
-				<i class="feather-edit"></i>
-			</a>
-			<a asp-action="delete" asp-route-id="@(model.Id)" id="deletebtn" class="btn btn-sm bg-success-light me-2">
-				<i class="feather-delete"></i>
-			</a>
+
 		</div>
 	}
 </div>
