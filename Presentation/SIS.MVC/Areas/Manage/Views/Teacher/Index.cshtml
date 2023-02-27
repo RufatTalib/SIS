@@ -2,7 +2,10 @@
 @using SIS.Domain.Entities;
 @model GetAllTeacherQueryResponse
 
-
+@section HeadSection
+	{
+	<script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+}
 
 <form asp-action="index" method="get">
 
@@ -125,3 +128,7 @@
 	</div>
 </div>
 
+@section BodySection
+	{
+	<script src="~/assets/js/swalTrigger.js"></script>
+}

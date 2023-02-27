@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SIS.Application.Features.Commands.TeacherCommand.CreateTeacher;
+using SIS.Application.Features.Commands.TeacherCommand.DeleteTeacher;
 using SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher;
 using SIS.Application.Features.Queries.TeacherQuery.GetAll;
 using SIS.Application.Features.Queries.TeacherQuery.GetById;
@@ -156,7 +157,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			return RedirectToAction("index");
 		}
 
-		/*public async Task<IActionResult> Delete(DeleteTeacherCommandRequest request)
+		public async Task<IActionResult> Delete(DeleteTeacherCommandRequest request)
 		{
 			var response = await _mediator.Send(request);
 
@@ -164,6 +165,6 @@ namespace SIS.MVC.Areas.Manage.Controllers
 				return Ok();
 			else
 				return NotFound();
-		}*/
+		}
 	}
 }
