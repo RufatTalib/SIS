@@ -31,7 +31,6 @@
     <Folder Include="Features\Commands\EventCommand\UpdateEvent\" />
     <Folder Include="Features\Commands\GroupCommand\UpdateGroup\" />
     <Folder Include="Features\Commands\SliderCommand\UpdateSlider\" />
-    <Folder Include="Features\Commands\StudentCommand\UpdateStudent\" />
     <Folder Include="Features\Commands\TeacherCommand\DeleteTeacher\" />
   </ItemGroup>
 

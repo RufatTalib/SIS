@@ -47,10 +47,6 @@ namespace SIS.Application.Features.Commands.StudentCommand.CreateStudent
 
 		public int DepartmentId { get; set; }
 		public int GroupId { get; set; }
-
-		[Required(ErrorMessage = "Please, enter the classroom number specified to the teacher !")]
-		public int ClassNumber { get; set; }
-
 		public Gender Gender { get; set; }
 
 		[Required(ErrorMessage = "Please, enter your birthdate !")]

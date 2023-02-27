@@ -7,30 +7,37 @@
 	<script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 }
 
-<div class="student-group-form">
-	<div class="row">
-		<div class="col-lg-3 col-md-6">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search by ID ...">
+<form asp-action="index" method="get">
+
+	<div class="student-group-form">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="form-group">
+					<input name="SearchByName" value="@ViewData["SearchByNameValue"]" class="form-control" placeholder="Search by Name ...">
+				</div>
 			</div>
-		</div>
-		<div class="col-lg-3 col-md-6">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search by Name ...">
+			<div class="col-lg-3 col-md-6">
+				<div class="form-group">
+					<input name="SearchByStartedYear" value="@ViewData["SearchByStartedYearValue"]" class="form-control" placeholder="Search by started year ...">
+				</div>
 			</div>
-		</div>
-		<div class="col-lg-4 col-md-6">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search by Year ...">
+			<div class="col-lg-3 col-md-6">
+				<div class="form-group">
+					<input name="SearchByNumberOfStudent" value="@ViewData["SearchByNumberOfStudentValue"]" class="form-control" placeholder="Search by number of student ...">
+				</div>
 			</div>
-		</div>
-		<div class="col-lg-2">
-			<div class="search-student-btn">
-				<button type="btn" class="btn btn-primary">Search</button>
+			<div class="col-lg-2">
+				<div class="search-student-btn">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</div>
 			</div>
+
+
 		</div>
+
 	</div>
-</div>
+</form>
+
 <div class="row">
 	<div class="col-sm-12">
 		<div class="card card-table">

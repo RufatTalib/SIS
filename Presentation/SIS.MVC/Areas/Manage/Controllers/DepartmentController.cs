@@ -37,6 +37,11 @@ namespace SIS.MVC.Areas.Manage.Controllers
         {
             ViewDataConfig("Department","Department","Index");
 
+			ViewData["SearchByNameValue"] = request.SearchByName;
+			ViewData["SearchByStartedYearValue"] = request.SearchByStartedYear;
+			ViewData["SearchByNumberOfStudentValue"] = request.SearchByNumberOfStudent;
+
+
 			return View(await _mediator.Send(request));
 		}
 

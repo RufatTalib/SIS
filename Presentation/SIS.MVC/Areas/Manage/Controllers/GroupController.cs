@@ -28,6 +28,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		public async Task<IActionResult> Index(GetAllGroupQueryRequest request)
 		{
 			ViewDataConfig("Group","Group","Index");
+			ViewData["SearchByNameValue"] = request.SearchByName;
 
 			return View(await _mediator.Send(request));
 		}

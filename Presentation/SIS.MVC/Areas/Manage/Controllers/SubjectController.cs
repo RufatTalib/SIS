@@ -36,6 +36,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		public async Task<IActionResult> Index(GetAllSubjectQueryRequest request)
 		{
 			ViewDataConfig("Subject","Subject","Index");
+			ViewData["SearchByNameValue"] = request.SearchByName;
 
 			return View(await _mediator.Send(request));
 		}

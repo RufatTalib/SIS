@@ -60,7 +60,6 @@ namespace SIS.Application.Features.Commands.StudentCommand.CreateStudent
 				UserName = request.UserName,
 				IdentityRoleName = "Student",
 				DepartmentId = request.DepartmentId,
-				ClassNumber = request.ClassNumber,
 				ImageSrc = request.Image.Save(_env.WebRootPath, "ProfilePhotos")
 			};
 

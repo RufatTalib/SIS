@@ -56,6 +56,8 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 			teacher.Qualification = request.Qualification;
 			teacher.DepartmentId = request.DepartmentId;
 			teacher.ClassNumber = request.ClassNumber;
+			teacher.Gender = request.Gender;
+
 
 			List<Subject> subjects = new();
 

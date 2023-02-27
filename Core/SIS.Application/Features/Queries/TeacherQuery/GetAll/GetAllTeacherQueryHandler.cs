@@ -27,6 +27,11 @@ namespace SIS.Application.Features.Queries.TeacherQuery.GetAll
 
 			if (request.Page == 0) request.Page = 1;
 			if (request.PageSize == 0) request.PageSize = 10;
+			if (request.SearchByName != null) query = query.Where(x => x.FirstName.Contains(request.SearchByName));
+			if (request.SearchBySurname != null) query = query.Where(x => x.LastName.Contains(request.SearchBySurname));
+			if (request.SearchByQualification != null) query = query.Where(x => x.Qualification.Contains(request.SearchByQualification));
+			if (request.SearchBySubject != null)
+				query = query.Where(x => x.Subjects.Any(subject => subject.Name.Contains(request.SearchBySubject) ) );
 
 			PaginatedList<AppUser> teachers = PaginatedList<AppUser>.Create(query, request.Page, request.PageSize);
 

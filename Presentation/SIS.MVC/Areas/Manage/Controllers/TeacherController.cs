@@ -46,6 +46,11 @@ namespace SIS.MVC.Areas.Manage.Controllers
 		public async Task<IActionResult> Index(GetAllTeacherQueryRequest request)
 		{
 			ViewDataConfig("Teacher", "Teacher", "Index");
+			ViewData["SearchByNameValue"] = request.SearchByName;
+			ViewData["SearchBySurnameValue"] = request.SearchBySurname;
+			ViewData["SearchByQualificationValue"] = request.SearchByQualification;
+			ViewData["SearchBySubjectValue"] = request.SearchBySubject;
+
 
 			return View(await _mediator.Send(request));
 		}

@@ -11,5 +11,8 @@ namespace SIS.Application.Features.Queries.StudentQuery.GetAll
 	{
 		public int Page { get; set; }
 		public int PageSize { get; set; }
+		public string? SearchByGroup { get; set; }
+		public string? SearchByName { get; set; }
+		public string? SearchBySurname { get; set; }
 	}
 }

@@ -11,5 +11,10 @@ namespace SIS.Application.Features.Queries.TeacherQuery.GetAll
 	{
 		public int Page { get; set; }
 		public int PageSize { get; set; }
+		public string? SearchByName { get; set; }
+		public string? SearchBySurname { get; set; }
+		public string? SearchByQualification { get; set; }
+		public string? SearchBySubject { get; set; }
+
 	}
 }

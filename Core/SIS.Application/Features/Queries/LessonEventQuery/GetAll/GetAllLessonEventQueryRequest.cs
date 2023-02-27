@@ -11,5 +11,9 @@ namespace SIS.Application.Features.Queries.LessonEventQuery.GetAll
     {
         public int Page { get; set; }
         public int PageSize { get; set; }
+        public string? SearchByTeacherName { get; set; }
+        public string? SearchByTeacherSurname { get; set; }
+        public string? SearchByGroup { get; set; }
+        public string? SearchByRoomNumber { get; set; }
     }
 }

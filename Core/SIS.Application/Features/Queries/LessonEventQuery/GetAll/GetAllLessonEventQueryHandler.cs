@@ -31,6 +31,14 @@ namespace SIS.Application.Features.Queries.LessonEventQuery.GetAll
 
             if (request.Page == 0) request.Page = 1;
             if (request.PageSize == 0) request.PageSize = 10;
+            if (request.SearchByTeacherName != null)
+                query = query.Where(x => x.Teacher.FirstName.Contains(request.SearchByTeacherName));
+            if (request.SearchByTeacherSurname != null)
+                query = query.Where(x => x.Teacher.LastName.Contains(request.SearchByTeacherSurname));
+            if (request.SearchByGroup != null)
+                query = query.Where(x => x.Group.Name.Contains(request.SearchByGroup));
+            if (request.SearchByRoomNumber != null)
+                query = query.Where(x => x.ClassNumber.ToString().Contains(request.SearchByRoomNumber));
 
             PaginatedList<LessonEvent> lessonEvents = PaginatedList<LessonEvent>.Create(query, request.Page, request.PageSize);
 

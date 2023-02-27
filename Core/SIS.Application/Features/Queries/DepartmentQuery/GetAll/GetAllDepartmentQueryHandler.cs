@@ -25,6 +25,12 @@ namespace SIS.Application.Features.Queries.DepartmentQuery.GetAll
 
 			if (request.Page == 0) request.Page = 1;
 			if (request.PageSize == 0) request.PageSize = 10;
+			if (request.SearchByName != null)
+				query = query.Where(x => x.Name.Contains(request.SearchByName));
+			if (request.SearchByStartedYear != null)
+				query = query.Where(x => x.StartedDate.Year.ToString().Contains(request.SearchByStartedYear) );
+			if (request.SearchByNumberOfStudent != null)
+				query = query.Where(x => x.NumberOfStudents.ToString().Contains(request.SearchByNumberOfStudent));
 
 			PaginatedList<Department> departments = PaginatedList<Department>.Create(query, request.Page, request.PageSize);
 

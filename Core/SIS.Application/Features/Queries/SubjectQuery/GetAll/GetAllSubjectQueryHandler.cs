@@ -25,6 +25,8 @@ namespace SIS.Application.Features.Queries.SubjectQuery.GetAll
 
 			if (request.Page == 0) request.Page = 1;
 			if (request.PageSize == 0) request.PageSize = 10;
+			if (request.SearchByName != null)
+				query = query.Where(x => x.Name.Contains(request.SearchByName));
 
 			PaginatedList<Subject> subjects = PaginatedList<Subject>.Create(query, request.Page, request.PageSize);
 
