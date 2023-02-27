@@ -128,7 +128,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
 				Gender = response.Teacher.Gender,
 				Phone = response.Teacher.PhoneNumber,
 				Qualification = response.Teacher.Qualification,
-				SubjectIds = subjectList
+				SubjectIds = subjectList,
+				ImageSrc = response.Teacher.ImageSrc
 			};
 
 

@@ -61,6 +61,7 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 		public DateTime? BirthDate { get; set; }
 
 		public IFormFile? Image { get; set; }
+		public string? ImageSrc { get; set; }
 
 
 		public List<int>? SubjectIds { get; set; }

@@ -94,6 +94,8 @@
 
 							<div class="form-group local-forms" id="subjects">
 								
+
+
 							</div>
 						</div>
 
@@ -126,7 +128,10 @@
 						</div>
 						<div class="col-12 col-sm-4">
 							<div class="form-group students-up-files">
-								<label>Upload Admin Photo (150px X 150px)</label>
+								<label>Upload Photo</label>
+								<div style="width:100px;height:100px;" class="m-1">
+									<img src="~/ProfilePhotos/@Model.ImageSrc" style="max-width:100%;" />
+								</div>
 								<div class="upload">
 									<label class="file-upload image-upbtn mb-0">
 										Choose File <input asp-for="Image">
@@ -148,7 +153,7 @@
 						</div>
 						<div class="col-12">
 							<div class="student-submit">
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Update</button>
 							</div>
 						</div>
 					</div>
