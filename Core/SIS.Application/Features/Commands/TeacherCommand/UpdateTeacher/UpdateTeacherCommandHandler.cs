@@ -21,20 +21,20 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 			_userManager = userManager;
 			_subjectReadRepository = subjectReadRepository;
 		}
-		public async Task<UpdateTeacherCommandResponse> Handle(UpdateTeacherCommandRequest request, 
+		public async Task<UpdateTeacherCommandResponse> Handle(UpdateTeacherCommandRequest request,
 			CancellationToken cancellationToken)
 		{
 			AppUser? teacher = _userManager.Users.Include(x => x.Department)
 				.Include(x => x.Subjects)
 				.FirstOrDefault(x => x.IsDeleted == false && x.Id == request.Id);
 
-			if(teacher == null) return new() { Success = false, ErrorMessage = "Teacher doesn't exist !" };
+			if (teacher == null) return new() { Success = false, ErrorMessage = "Teacher doesn't exist !" };
 
 			// check username already take condition
-			if( _userManager.Users.FirstOrDefault( 
+			if (_userManager.Users.FirstOrDefault(
 				x => x.IsDeleted == false
 				&& x.Id != request.Id
-				&& x.UserName == request.UserName			
+				&& x.UserName == request.UserName
 			) is not null)
 				return new() { Success = false, ErrorMessage = "Username already exists" };
 
@@ -58,17 +58,43 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 			teacher.ClassNumber = request.ClassNumber;
 			teacher.Gender = request.Gender;
 
+			List<Subject> removeThoseSubjectsInFuture = new();
 
-			List<Subject> subjects = new();
-
-			foreach(int id in request.SubjectIds)
+			// Synchronising with SubjectIds list
+			foreach (Subject subject in teacher.Subjects)
 			{
-				subjects.Add(await _subjectReadRepository.FirstOrDefaultAsync(x => x.Id == id));
+				if( !request.SubjectIds.Any(id => subject.Id == id) )
+				{
+					// We should remove this !
+					//teacher.Subjects.Remove(subject);
+					removeThoseSubjectsInFuture.Add(subject);
+				}
+			}
+			
+			foreach (int id in request.SubjectIds)
+			{
+				if (id == -1) continue;
+				if(!teacher.Subjects.Any(x => x.Id == id))
+				{
+					Subject subject = await _subjectReadRepository.FirstOrDefaultAsync(
+						x => x.IsDeleted == false
+						&& x.Id == id
+						);
+
+					if (subject is null)
+						return new() { Success = false, ErrorMessage = "Subject Not Found !" };
+
+					teacher.Subjects.Add( subject );
+				}
 			}
 
-			teacher.Subjects.AddRange(subjects);
+			foreach(Subject subject in removeThoseSubjectsInFuture)
+			{
+				teacher.Subjects.Remove(subject);
+			}
 
 			var result = await _userManager.UpdateAsync(teacher);
+
 			if (!result.Succeeded)
 				return new() { Success = false, ErrorMessage = result.Errors.FirstOrDefault().Description };
 

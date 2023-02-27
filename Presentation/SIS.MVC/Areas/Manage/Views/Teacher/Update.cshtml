@@ -33,7 +33,7 @@
 								<select class="form-control select" asp-for="Gender">
 									@foreach (Gender gender in (Gender[])Enum.GetValues(typeof(Gender)))
 									{
-											<option value="@gender">@gender</option>
+										<option value="@gender">@gender</option>
 									}
 								</select>
 								<span asp-validation-for="Gender" class="text-danger"></span>
@@ -44,7 +44,7 @@
 								<label>Date Of Birth <span class="login-danger">*</span></label>
 								<input asp-for="BirthDate" class="form-control">
 								<span asp-validation-for="BirthDate" class="text-danger"></span>
-							</div>	
+							</div>
 						</div>
 						<div class="col-12 col-sm-4">
 							<div class="form-group local-forms">
@@ -80,20 +80,44 @@
 								<select asp-for="DepartmentId" class="mt-3 p-1">
 									@foreach (Department dep in (List<Department>)ViewData["Departments"])
 									{
-											<option value="@dep.Id">@dep.Name</option>
+										<option value="@dep.Id">@dep.Name</option>
 									}
 								</select>
 							</div>
 						</div>
 
 
-						
+
 
 						<div class="col-12 col-sm-4">
-							<button type="button" id="addsubjectbtn" class="m-1">Add Subject</button>
+							<button type="button" id="addsubjectbtn" class="m-1 btn btn-warning btn-block">Add Subject</button>
 
 							<div class="form-group local-forms" id="subjects">
-								
+
+								@for (int i = 0; i < Model.Subjects.Count; i++)
+								{
+
+									<div class="border m-1" style="text-align:center;">
+										<select asp-for="@Model.SubjectIds[i]" class="m-2 px-5 py-1">
+											@foreach (Subject subject in (List<Subject>)ViewData["Subjects"])
+											{
+												if (subject.Id == Model.Subjects[i].Id)
+												{
+													<option value="@subject.Id" selected="selected">@subject.Name</option>
+												}
+												else
+												{
+
+													<option value="@subject.Id">@subject.Name</option>
+												}
+											}
+										</select>
+
+										<button id="removeBtn" class="btn btn-outline-danger">
+											<i class="feather-delete"></i>
+										</button>
+									</div>
+								}
 
 
 							</div>
@@ -164,23 +188,49 @@
 </div>
 
 @section BodySection
-{
+	{
 	<script>
+		let removeBtns = document.querySelectorAll("#removeBtn");
+		removeBtns.forEach(removeBtn =>
+		{
+
+			removeBtn.addEventListener("click", function (e) {
+				e.preventDefault();
+				let select = removeBtn.parentNode.querySelector("select");
+
+				select.options[select.options.selectedIndex].removeAttribute("selected");
+
+				let unwantedOption = document.createElement("option");
+				unwantedOption.setAttribute("value", -1);
+				unwantedOption.setAttribute("selected", "selected");
+				select.appendChild(unwantedOption);
+
+				removeBtn.parentElement.setAttribute("style", "display:none;");
+
+			});
+
+		});
+		
+
+
 		let addsubjectbtn = document.querySelector("#addsubjectbtn");
 		let container = document.querySelector("#subjects");
 
 		let aviableSubjects;
-		let count = 0;
+		let count = @Model.Subjects.Count;
 
-		fetch("/manage/teacher/GetAviableSubjects").then(x => x.json()).then(y => 
-		{
+		fetch("/manage/teacher/GetAviableSubjects").then(x => x.json()).then(y => {
 			// save json object
 			aviableSubjects = y;
 		});
 
 		addsubjectbtn.addEventListener("click",
-		function(){
-				
+			function () {
+				let divContainer = document.createElement("div");
+				divContainer.style = "text-align:center;"
+				divContainer.classList.add("border");
+				divContainer.classList.add("m-1");
+
 				let selectNode = document.createElement("select");
 
 				selectNode.setAttribute(
@@ -189,8 +239,8 @@
 				);
 
 				selectNode.classList.add("m-2");
-				selectNode.classList.add("p-1");
-
+				selectNode.classList.add("px-5");
+				selectNode.classList.add("py-1");
 
 				for (let i = 0; i < aviableSubjects.length; i++) {
 					let num = aviableSubjects[i]["id"];
@@ -202,9 +252,33 @@
 					selectNode.appendChild(optionNode);
 				}
 
-				container.appendChild(selectNode);
+				let removeButton = document.createElement("button");
+				removeButton.classList.add("btn", "btn-outline-danger");
+
+				removeButton.addEventListener("click", function (e) {
+					e.preventDefault();
+					let select = removeButton.parentNode.querySelector("select");
+
+					select.options[select.options.selectedIndex].removeAttribute("selected");
+
+					let unwantedOption = document.createElement("option");
+					unwantedOption.setAttribute("value", -1);
+					unwantedOption.setAttribute("selected", "selected");
+					select.appendChild(unwantedOption);
+
+					removeButton.parentElement.setAttribute("style", "display:none;");
+
+				});
+
+				let icon = document.createElement("i");
+				icon.classList.add("feather-delete");
+				removeButton.appendChild(icon);
+
+				divContainer.appendChild(selectNode);
+				divContainer.appendChild(removeButton);
+				container.appendChild(divContainer);
 				count++;
-		});
+			});
 
 
 	</script>

@@ -65,5 +65,6 @@ namespace SIS.Application.Features.Commands.TeacherCommand.UpdateTeacher
 
 
 		public List<int>? SubjectIds { get; set; }
+		public List<Subject>? Subjects { get; set; }
 	}
 }

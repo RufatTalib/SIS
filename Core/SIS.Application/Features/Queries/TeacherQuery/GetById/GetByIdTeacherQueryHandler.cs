@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SIS.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,9 @@ namespace SIS.Application.Features.Queries.TeacherQuery.GetById
 		}
 		public async Task<GetByIdTeacherQueryResponse> Handle(GetByIdTeacherQueryRequest request, CancellationToken cancellationToken)
 		{
-			return new() { Teacher = await _userManager.FindByIdAsync(request.Id) };
+			return new() { Teacher = await _userManager.Users.Include(x => x.Subjects).FirstOrDefaultAsync(
+				x => x.IsDeleted == false 
+				&& x.Id == request.Id) };
 		}
 	}
 }

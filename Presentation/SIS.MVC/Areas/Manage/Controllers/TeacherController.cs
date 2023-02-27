@@ -98,17 +98,11 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 		public async Task<IActionResult> Update(GetByIdTeacherQueryRequest request)
 		{
-
-			int count = _subjectReadRepository.GetAll().Count();
-			List<int> subjectList = new List<int>(new int[count]);
-			for (int i = 0; i < count; i++)
-				subjectList[i] = -1;
-
+			int subjectCount = _subjectReadRepository.GetAll().Count();
+			
 			ViewDataConfig("Edit Teacher", "Teacher", "Edit");
-
 			ViewData["Departments"] = _departmentReadRepository.GetAll().ToList();
 			ViewData["Subjects"] = _subjectReadRepository.GetAll().ToList();
-
 
 			var response = await _mediator.Send(request);
 
@@ -128,7 +122,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
 				Gender = response.Teacher.Gender,
 				Phone = response.Teacher.PhoneNumber,
 				Qualification = response.Teacher.Qualification,
-				SubjectIds = subjectList,
+				SubjectIds = new List<int>(new int[subjectCount]),
+				Subjects = response.Teacher.Subjects,
 				ImageSrc = response.Teacher.ImageSrc
 			};
 
