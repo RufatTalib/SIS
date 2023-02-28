@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,5 +21,6 @@ namespace SIS.Application.Features.Commands.UserCommand.UpdateUser
 		public string? JobDescription { get; set; }
 		public string? Description { get; set; }
 		public DateTime? BirthDate { get; set; }
+		public IFormFile? Image { get; set; }
 	}
 }

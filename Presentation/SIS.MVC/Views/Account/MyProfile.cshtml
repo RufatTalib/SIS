@@ -2,12 +2,22 @@
 @using SIS.Domain.Entities;
 @model UpdateUserCommandRequest
 
+@section HeadSection
+{
+	<style>
+		input {
+			border:0;
+			background:white;
+		}
+	</style>
+}
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="profile-header">
 			<div class="row align-items-center">
 				<div class="col-auto profile-image">
-					<a href="#">
+					<a style="cursor:pointer;" onclick="document.getElementById('image_entry').click();">
 						<img class="rounded-circle" alt="User Image" src="~/ProfilePhotos/@Model.ImageSrc">
 					</a>
 				</div>
@@ -16,11 +26,6 @@
 					<h6 class="text-muted">@Model.JobDescription</h6>
 					<div class="Model-Location"><i class="fas fa-map-marker-alt"></i> @Model.Adress</div>
 					<div class="about-text">@Model.Description</div>
-				</div>
-				<div class="col-auto profile-btn">
-					<a asp-action="edit" asp-route-id="@Model.UserId" class="btn btn-primary">
-						Edit
-					</a>
 				</div>
 			</div>
 		</div>
@@ -38,40 +43,73 @@
 
 			<div class="tab-pane fade show active" id="per_details_tab">
 
-				<div class="row">
-					<div class="col-lg-9">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title d-flex justify-content-between">
-									<span>Personal Details</span>
-									<a class="edit-link" data-bs-toggle="modal" href="#edit_personal_details"><i class="far fa-edit me-1"></i>Edit</a>
-								</h5>
-								<div class="row">
-									<p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Name</p>
-									<p class="col-sm-9">@Model.FirstName @Model.LastName</p>
-								</div>
-								<div class="row">
-									<p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Date of Birth</p>
-									<p class="col-sm-9">@Model.BirthDate?.ToString("dd MMM yyyy")</p>
-								</div>
-								<div class="row">
-									<p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Email</p>
-									<p class="col-sm-9">@Model.Email</p>
-								</div>
-								<div class="row">
-									<p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Mobile</p>
-									<p class="col-sm-9">@Model.Phone</p>
-								</div>
-								<div class="row">
-									<p class="col-sm-3 text-muted text-sm-end mb-0">Address</p>
-									<p class="col-sm-9 mb-0">
-										@Model.Adress
-									</p>
+				<form asp-action="myprofile" method="post" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-lg-9">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title d-flex justify-content-between">
+										<span>Personal Details</span>
+										<a class="edit-link" id="editbtn" style="cursor:pointer;"><i class="far fa-edit me-1"></i>Edit</a>
+									</h5>
+									<div class="row">
+										<div class="col-sm-3"><p class="text-muted text-sm-end mb-0 mb-sm-3">Name</p></div>
+										<div class="col-sm-9">
+											<input asp-for="FirstName" id="firstname_entry" disabled></input>
+											<span asp-validation-for="FirstName"></span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"><p class="text-muted text-sm-end mb-0 mb-sm-3">Surname</p></div>
+										<div class="col-sm-9">
+											<input asp-for="LastName" id="lastname_entry" disabled></input>
+											<span asp-validation-for="LastName"></span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"><p class="text-muted text-sm-end mb-0 mb-sm-3">Birthdate</p></div>
+										<div class="col-sm-9">
+											<input asp-for="BirthDate" id="birthdate_entry" disabled></input>
+											<span asp-validation-for="BirthDate"></span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"><p class="text-muted text-sm-end mb-0 mb-sm-3">Email</p></div>
+										<div class="col-sm-9">
+											<input asp-for="Email" id="email_entry" disabled></input>
+											<span asp-validation-for="Email"></span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"><p class="text-muted text-sm-end mb-0 mb-sm-3">Phone</p></div>
+										<div class="col-sm-9">
+											<input asp-for="Phone" id="phone_entry" disabled></input>
+											<span asp-validation-for="Phone"></span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"><p class="text-muted text-sm-end mb-0 mb-sm-3">Adress</p></div>
+										<div class="col-sm-9">
+											<input asp-for="Adress" id="adress_entry" disabled></input>
+											<span asp-validation-for="Adress"></span>
+										</div>
+									</div>
+
+									<div class="row">
+										<input asp-for="Image" id="image_entry" hidden/>
+										<div class="col-sm-3"></div>
+										<div class="col-sm-6">
+											<button type="submit" class="btn btn-primary btn-block" id="savebtn"
+													style="display:none;">
+												Save
+											</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 
 			</div>
 
@@ -79,3 +117,44 @@
 		</div>
 	</div>
 </div>
+
+@section BodySection
+{
+	<script>
+		let editbtn = document.querySelector("#editbtn");
+		let savebtn = document.querySelector("#savebtn");
+		let entries = [
+			document.querySelector("#firstname_entry"),
+			document.querySelector("#lastname_entry"),
+			document.querySelector("#birthdate_entry"),
+			document.querySelector("#email_entry"),
+			document.querySelector("#phone_entry"),
+			document.querySelector("#adress_entry")
+		];
+
+		var state = false;
+
+		editbtn.addEventListener("click", function(e){
+			e.preventDefault();
+
+			if(state == false)
+			{
+				entries.forEach(x => x.removeAttribute("disabled"));
+				savebtn.setAttribute("style", "display:block;");
+				state = true;
+			}
+			else
+			{
+				entries.forEach(x => x.setAttribute("disabled",""));
+				savebtn.setAttribute("style", "display:none;");
+				state = false;
+			}
+		
+		});
+
+
+	</script>
+
+
+
+}
