@@ -27,9 +27,15 @@ namespace SIS.Application.Features.Commands.LessonEventCommand.UpdateLessonEvent
 		}
 		public async Task<UpdateLessonEventCommandResponse> Handle(UpdateLessonEventCommandRequest request, CancellationToken cancellationToken)
 		{
-			AppUser teacher = await _userManager.FindByIdAsync(request.TeacherId);
+			AppUser teacher = null;
 
-			if (teacher == null) return new() { Success = false, ErrorMessage = "Invalid teacher !" };
+			if (request.TeacherId != null)
+			{
+				teacher = await _userManager.FindByIdAsync(request.TeacherId);
+
+				if (teacher == null) return new() { Success = false, ErrorMessage = "Invalid teacher !" };
+			}
+			
 
 			LessonEvent lessonEvent = await _lessonEventReadRepository.FirstOrDefaultAsync(x => x.IsDeleted == false
 			&& x.Id == request.Id);

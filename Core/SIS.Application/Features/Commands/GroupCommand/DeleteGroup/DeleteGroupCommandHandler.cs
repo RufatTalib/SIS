@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using SIS.Application.Repositories.GroupRepository;
 using SIS.Domain.Entities;
 using System;
@@ -21,11 +22,16 @@ namespace SIS.Application.Features.Commands.GroupCommand.DeleteGroup
 		}
 		public async Task<DeleteGroupCommandResponse> Handle(DeleteGroupCommandRequest request, CancellationToken cancellationToken)
 		{
-			Group group = await _groupReadRepository.GetByIdAsync(request.Id);
+			Group group = await _groupReadRepository
+				.GetWhere(x => x.IsDeleted == false)
+				.Include(x => x.LessonEvents)
+				.FirstOrDefaultAsync(x => x.Id == request.Id);
 
 			if (group is null)
 				return new() { Success = false, ErrorMessage = "Invalid group !" };
 
+			group.LessonEvents.ForEach(x => x.IsDeleted = true);
+			
 			if (!_groupWriteRepository.Delete(group))
 				return new() { Success = false, ErrorMessage = "Delete operation failed !" };
 

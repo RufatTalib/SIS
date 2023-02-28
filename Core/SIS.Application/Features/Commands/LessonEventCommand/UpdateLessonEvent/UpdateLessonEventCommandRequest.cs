@@ -18,6 +18,6 @@ namespace SIS.Application.Features.Commands.LessonEventCommand.UpdateLessonEvent
 		public int GroupId { get; set; }
 		public int SubjectId { get; set; }
 		public int ClassNumber { get; set; }
-		public string TeacherId { get; set; }
+		public string? TeacherId { get; set; }
 	}
 }
