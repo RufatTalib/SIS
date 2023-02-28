@@ -1,5 +1,6 @@
-﻿@using SIS.Domain.Entities;
-@model AppUser
+﻿@using SIS.Application.Features.Commands.UserCommand.UpdateUser;
+@using SIS.Domain.Entities;
+@model UpdateUserCommandRequest
 
 <div class="row">
 	<div class="col-md-12">
@@ -10,14 +11,14 @@
 						<img class="rounded-circle" alt="User Image" src="~/ProfilePhotos/@Model.ImageSrc">
 					</a>
 				</div>
-				<div class="col ms-md-n2 profile-user-info">
+				<div class="col ms-md-n2 profile-Model-info">
 					<h4 class="user-name mb-0">@Model.FirstName @Model.LastName</h4>
 					<h6 class="text-muted">@Model.JobDescription</h6>
-					<div class="user-Location"><i class="fas fa-map-marker-alt"></i> @Model.Adress</div>
+					<div class="Model-Location"><i class="fas fa-map-marker-alt"></i> @Model.Adress</div>
 					<div class="about-text">@Model.Description</div>
 				</div>
 				<div class="col-auto profile-btn">
-					<a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-primary">
+					<a asp-action="edit" asp-route-id="@Model.UserId" class="btn btn-primary">
 						Edit
 					</a>
 				</div>
@@ -29,7 +30,7 @@
 					<a class="nav-link active" data-bs-toggle="tab" href="#per_details_tab">About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#password_tab">Password</a>
+					<a class="nav-link" asp-action="changepassword">Password</a>
 				</li>
 			</ul>
 		</div>
@@ -59,7 +60,7 @@
 								</div>
 								<div class="row">
 									<p class="col-sm-3 text-muted text-sm-end mb-0 mb-sm-3">Mobile</p>
-									<p class="col-sm-9">@Model.PhoneNumber</p>
+									<p class="col-sm-9">@Model.Phone</p>
 								</div>
 								<div class="row">
 									<p class="col-sm-3 text-muted text-sm-end mb-0">Address</p>
@@ -74,33 +75,6 @@
 
 			</div>
 
-
-			<div id="password_tab" class="tab-pane fade">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Change Password</h5>
-						<div class="row">
-							<div class="col-md-10 col-lg-6">
-								<form>
-									<div class="form-group">
-										<label>Old Password</label>
-										<input type="password" class="form-control">
-									</div>
-									<div class="form-group">
-										<label>New Password</label>
-										<input type="password" class="form-control">
-									</div>
-									<div class="form-group">
-										<label>Confirm Password</label>
-										<input type="password" class="form-control">
-									</div>
-									<button class="btn btn-primary" type="submit">Save Changes</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
 		</div>
 	</div>

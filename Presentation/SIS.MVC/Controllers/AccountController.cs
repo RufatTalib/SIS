@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SIS.Application.Features.Commands.AttendanceCommand.UpdateAttendance;
+using SIS.Application.Features.Commands.UserCommand.UpdateUser;
+using SIS.Application.Features.Commands.UserPasswordCommand.UserPasswordUpdate;
 using SIS.Application.Features.Queries.AttendanceQuery.GetAll;
 using SIS.Application.Repositories.AttendanceRepository;
 using SIS.Application.Repositories.GroupRepository;
@@ -94,6 +96,42 @@ namespace SIS.MVC.Controllers
 			return RedirectToAction("index","home");
         }
 
+        public async Task<IActionResult> ChangePassword()
+        {
+			if (!User.Identity.IsAuthenticated) return NotFound();
+
+			AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+			if (user == null) return NotFound();
+
+			UserPasswordUpdateCommandRequest request = new()
+			{
+				OldPassword = null,
+				NewPassword = null,
+				NewPasswordConfirm = null
+			};
+
+			return View(request);
+		}
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(UserPasswordUpdateCommandRequest request)
+        {
+			if (!ModelState.IsValid) return View(request);
+
+			var response = await _mediator.Send(request);
+
+			if (!response.Success)
+			{
+				ModelState.AddModelError("", response.ErrorMessage);
+
+				return View(request);
+			}
+
+            return RedirectToAction(nameof(MyProfile));
+		}
+
+
         public async Task<IActionResult> MyProfile()
         {
             if (!User.Identity.IsAuthenticated) return NotFound();
@@ -102,7 +140,39 @@ namespace SIS.MVC.Controllers
 
             if (user == null) return NotFound();
 
-            return View(user);
+            UpdateUserCommandRequest request = new()
+            {
+                UserId = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Adress = user.Adress,
+                Phone = user.PhoneNumber,
+                BirthDate = user.BirthDate,
+                Description= user.Description,
+                JobDescription= user.JobDescription,
+                ImageSrc= user.ImageSrc
+            };
+
+            return View(request);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MyProfile(UpdateUserCommandRequest request)
+        {
+			if (!ModelState.IsValid) return View(request);
+
+			var response = await _mediator.Send(request);
+
+			if (!response.Success)
+			{
+				ModelState.AddModelError("", response.ErrorMessage);
+
+				return View(request);
+			}
+
+			
+            return RedirectToAction(nameof(MyProfile));
         }
 
         public async Task<IActionResult> Attendances(GetAllAttendanceQueryRequest request)
