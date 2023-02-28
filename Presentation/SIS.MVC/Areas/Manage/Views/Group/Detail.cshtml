@@ -1,0 +1,96 @@
+﻿@using SIS.Domain.Entities;
+@model Group
+
+@section HeadSection
+    {
+    <script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+}
+
+
+@*<form asp-action="index" method="get">
+
+    <div class="student-group-form">
+        <div class="row">
+
+
+            <div class="col-lg-4 col-md-6">
+                <div class="form-group">
+                    <input name="SearchByName" value="@ViewData["SearchByNameValue"]" class="form-control" placeholder="Search by Name ...">
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="search-student-btn">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>
+*@<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-table">
+            <div class="card-body">
+
+                <div class="page-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="page-title">@Model.Name</h3>
+                        </div>
+                        <div class="col-auto text-end float-end ms-auto download-grp">
+                            <a asp-action="download" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+                            <a asp-action="create" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+                        <thead class="student-thread">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th class="text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int count = 0;
+                            }
+                            @foreach (AppUser g in Model.Users)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>
+                                        <h2>
+                                            <a asp-action="detail" asp-route-id="@g.Id">@g.FirstName @g.LastName</a>
+                                        </h2>
+                                    </td>
+                                    <td class="text-end">
+                                        <div class="actions">
+                                            <a asp-action="removeuser" asp-route-id="@g.Id" id="deletebtn" class="btn btn-sm bg-success-light me-2">
+                                                <i class="feather-delete"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section BodySection
+    {
+    <script src="~/assets/js/swalTrigger.js"></script>
+}

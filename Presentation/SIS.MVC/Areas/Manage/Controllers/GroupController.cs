@@ -7,6 +7,7 @@ using SIS.Application.Features.Commands.GroupCommand.UpdateGroup;
 using SIS.Application.Features.Commands.SubjectCommand.UpdateSubject;
 using SIS.Application.Features.Queries.GroupQuery.GetAll;
 using SIS.Application.Features.Queries.GroupQuery.GetById;
+using SIS.Application.Features.Queries.GroupQuery.GetByIdDetail;
 using System.Data;
 
 namespace SIS.MVC.Areas.Manage.Controllers
@@ -34,6 +35,17 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			ViewData["SearchByNameValue"] = request.SearchByName;
 
 			return View(await _mediator.Send(request));
+		}
+
+		public async Task<IActionResult> Detail(GetByIdDetailGroupQueryRequest request)
+		{
+			ViewDataConfig("Detail Group", "Group", "Detail");
+
+			var response = await _mediator.Send(request);
+
+			if (response.Group is null) return NotFound();
+
+			return View(response.Group);
 		}
 
 		public IActionResult Create()
