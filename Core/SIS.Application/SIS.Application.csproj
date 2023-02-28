@@ -29,7 +29,6 @@
     <Folder Include="Features\Commands\Admin\DeleteAdmin\" />
     <Folder Include="Features\Commands\DepartmentCommand\DeleteDepartment\" />
     <Folder Include="Features\Commands\EventCommand\UpdateEvent\" />
-    <Folder Include="Features\Commands\GroupCommand\UpdateGroup\" />
     <Folder Include="Features\Commands\SliderCommand\UpdateSlider\" />
   </ItemGroup>
 

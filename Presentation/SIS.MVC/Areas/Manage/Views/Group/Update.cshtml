@@ -1,0 +1,30 @@
+﻿@using SIS.Application.Features.Commands.GroupCommand.UpdateGroup;
+@model UpdateGroupCommandRequest
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-action="update">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Group Information</span></h5>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Group Name <span class="login-danger">*</span></label>
+                                <input asp-for="Name" class="form-control">
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="student-submit">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIS.Application.Features.Commands.GroupCommand.CreateGroup;
 using SIS.Application.Features.Commands.GroupCommand.DeleteGroup;
+using SIS.Application.Features.Commands.GroupCommand.UpdateGroup;
+using SIS.Application.Features.Commands.SubjectCommand.UpdateSubject;
 using SIS.Application.Features.Queries.GroupQuery.GetAll;
+using SIS.Application.Features.Queries.GroupQuery.GetById;
 using System.Data;
 
 namespace SIS.MVC.Areas.Manage.Controllers
@@ -58,6 +61,34 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			return RedirectToAction("index");
 		}
 
+		public async Task<IActionResult> Update(GetByIdGroupQueryRequest request)
+		{
+			ViewDataConfig("Edit Group", "Group", "Update");
+
+			var response = await _mediator.Send(request);
+
+			if (response.Group is null) return NotFound();
+
+			return View(new UpdateGroupCommandRequest() { Id = response.Group.Id, Name = response.Group.Name });
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Update(UpdateGroupCommandRequest request)
+		{
+			ViewDataConfig("Edit Group", "Group", "Update");
+			if (!ModelState.IsValid) return View(request);
+
+			var response = await _mediator.Send(request);
+
+			if (!response.Success)
+			{
+				ModelState.AddModelError("", response.ErrorMessage);
+
+				return View(request);
+			}
+
+			return RedirectToAction("index");
+		}
 
 		public async Task<IActionResult> Delete(DeleteGroupCommandRequest request)
 		{
