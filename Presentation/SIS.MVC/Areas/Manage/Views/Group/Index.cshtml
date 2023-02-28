@@ -52,13 +52,9 @@
                     <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                         <thead class="student-thread">
                             <tr>
-                                <th>
-                                    <div class="form-check check-tables">
-                                        <input class="form-check-input" type="checkbox" value="something">
-                                    </div>
-                                </th>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Number of Student</th>
                                 <th class="text-end">Action</th>
                             </tr>
                         </thead>
@@ -70,15 +66,15 @@
                             {
                                 count++;
                                 <tr>
-                                    <td>
-                                        <div class="form-check check-tables">
-                                            <input class="form-check-input" type="checkbox" value="something">
-                                        </div>
-                                    </td>
                                     <td>@count</td>
                                     <td>
                                         <h2>
                                             <a asp-action="detail" asp-route-id="@g.Id">@g.Name</a>
+                                        </h2>
+                                    </td>
+                                    <td>
+                                        <h2>
+                                            @g.Users.Count
                                         </h2>
                                     </td>
                                     <td class="text-end">

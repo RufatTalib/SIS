@@ -117,6 +117,10 @@
       "PackagePath": "staticwebassets\\Settings\\1aa65522-9308-4a13-b4be-9a809ab9f076blog-3.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\Settings\\6cf6ca11-d199-4026-b767-0ce9c37cea81logo.png",
+      "PackagePath": "staticwebassets\\Settings\\6cf6ca11-d199-4026-b767-0ce9c37cea81logo.png"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\110e5cd4-8dec-43f0-80b2-ab5ff305fec6blog-detail.jpg",
       "PackagePath": "staticwebassets\\SliderPhotos\\110e5cd4-8dec-43f0-80b2-ab5ff305fec6blog-detail.jpg"
     },

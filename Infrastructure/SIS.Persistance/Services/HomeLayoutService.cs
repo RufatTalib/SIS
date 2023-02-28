@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using SIS.Application.Repositories.SettingRepository;
 using SIS.Application.Services;
 using SIS.Domain.Entities;
 using System;
@@ -14,12 +15,15 @@ namespace SIS.Persistance.Services
 	{
 		private readonly UserManager<AppUser> _userManager;
 		private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ISettingReadRepository _settingReadRepository;
 
-		public HomeLayoutService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor)
+        public HomeLayoutService(UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor,
+			ISettingReadRepository settingReadRepository)
 		{
 			_userManager = userManager;
 			_httpContextAccessor = httpContextAccessor;
-		}
+            _settingReadRepository = settingReadRepository;
+        }
 		public async Task<AppUser> GetCurrentUser()
 		{
 			var Identity = _httpContextAccessor.HttpContext.User.Identity;
@@ -28,6 +32,13 @@ namespace SIS.Persistance.Services
 				return await _userManager.FindByNameAsync(Identity.Name);
 
 			return null;
+		}
+
+		public async Task<string?> GetLogoImageSrc()
+		{
+			Setting setting = await _settingReadRepository.FirstOrDefaultAsync(x => x.Key == "Logo");
+
+			return setting?.Value;
 		}
 	}
 }

@@ -4,6 +4,7 @@
 
 @{
 	AppUser user = await Service.GetCurrentUser();
+	string? imageSrc = await Service.GetLogoImageSrc();
 }
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@
 		<div class="header">
 			<div class="header-left">
 				<a asp-action="index" asp-controller="home" asp-area="" class="logo">
-					<img src="~/assets/img/logo.png" alt="Logo">
+					<img src="~/Settings/@imageSrc" alt="Logo">
 				</a>
 				<a asp-action="index" asp-controller="home" asp-area="" class="logo logo-small">
 					<img src="~/assets/img/logo-small.png" alt="Logo" width="30" height="30">
@@ -44,14 +45,7 @@
 				<a href="javascript:void(0);" id="toggle_btn">
 					<i class="fas fa-bars"></i>
 				</a>
-			</div>
-
-			<div class="top-nav-search">
-				<form>
-					<input type="text" class="form-control" placeholder="Search here">
-					<button class="btn" type="submit"><i class="fas fa-search"></i></button>
-				</form>
-			</div>
+			</div>	
 
 
 			<a class="mobile_btn" id="mobile_btn">

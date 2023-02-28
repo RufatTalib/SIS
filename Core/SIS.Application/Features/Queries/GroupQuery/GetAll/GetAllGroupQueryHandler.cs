@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using SIS.Application.Repositories.GroupRepository;
 using SIS.Domain.Entities;
 using SIS.Infrastructure.Tools;
@@ -22,6 +23,8 @@ namespace SIS.Application.Features.Queries.GroupQuery.GetAll
 			if (request.PageSize == 0) request.PageSize = 10;
 			if (request.SearchByName != null)
 				query = query.Where(x => x.Name.Contains(request.SearchByName));
+
+			query = query.Include(x => x.Users).AsNoTracking();
 
 			PaginatedList<Group> groups = PaginatedList<Group>.Create(query, request.Page, request.PageSize);
 
