@@ -102,6 +102,8 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			return RedirectToAction("index");
 		}
 
+
+
 		public async Task<IActionResult> Delete(DeleteGroupCommandRequest request)
 		{
 			var response = await _mediator.Send(request);

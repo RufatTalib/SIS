@@ -2157,8 +2157,8 @@
       "PackagePath": "staticwebassets\\assets\\js\\script.js"
     },
     {
-      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\js\\swalTrigger.js",
-      "PackagePath": "staticwebassets\\assets\\js\\swalTrigger.js"
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\js\\sweetalert.deletebtn.js",
+      "PackagePath": "staticwebassets\\assets\\js\\sweetalert.deletebtn.js"
     },
     {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\plugins\\apexchart\\apexcharts.min.js",
