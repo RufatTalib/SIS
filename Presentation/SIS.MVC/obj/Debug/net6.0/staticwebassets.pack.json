@@ -113,6 +113,14 @@
       "PackagePath": "staticwebassets\\ProfilePhotos\\dc57e72f-1f2b-4fc3-a599-34ca4cc2ea0eavatar-04.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\e6ec8c7d-a41e-4e2e-8b51-2e1637a09359profile-user.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\e6ec8c7d-a41e-4e2e-8b51-2e1637a09359profile-user.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\fb9a8af6-bb79-4df3-be5d-934251104d1buser-6.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\fb9a8af6-bb79-4df3-be5d-934251104d1buser-6.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\Settings\\142f0bd5-260a-4329-9fde-275c64810b5cblog-6.jpg",
       "PackagePath": "staticwebassets\\Settings\\142f0bd5-260a-4329-9fde-275c64810b5cblog-6.jpg"
     },

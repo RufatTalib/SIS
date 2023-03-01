@@ -77,6 +77,43 @@ namespace SIS.Persistance.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a29dc7d9-f490-4d60-a6b8-fd14f8c0e56b",
+                            ConcurrencyStamp = "84987346-c55a-4cda-b758-407dcf518c71",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SUPERADMIN"
+                        },
+                        new
+                        {
+                            Id = "f86174e0-bf79-425e-ba4f-66ff2b78737d",
+                            ConcurrencyStamp = "6acf207c-0f28-4b7f-b452-a3905d203fab",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "e6ffef28-8b4d-483f-806b-d4f5020edf7a",
+                            ConcurrencyStamp = "19e6c9ab-1c8d-4511-b030-6149d42f2356",
+                            Name = "Student",
+                            NormalizedName = "STUDENT"
+                        },
+                        new
+                        {
+                            Id = "e5b1f18e-d3d7-4838-9cd4-c5e66c1eaf7e",
+                            ConcurrencyStamp = "99ad6c18-3483-4caf-9023-f8df8c59ecb2",
+                            Name = "Teacher",
+                            NormalizedName = "TEACHER"
+                        },
+                        new
+                        {
+                            Id = "d7df5c78-a7ab-4a87-8e85-61d557401555",
+                            ConcurrencyStamp = "8fda6b04-935d-45bc-9193-625525613bc2",
+                            Name = "trashRole",
+                            NormalizedName = "TRAHSROLE"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -475,7 +512,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9616),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8058),
                             IsDeleted = false,
                             Key = "Info",
                             Value = "Example information message"
@@ -483,7 +520,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9622),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8064),
                             IsDeleted = false,
                             Key = "Awards",
                             Value = "100"
@@ -491,7 +528,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9623),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8065),
                             IsDeleted = false,
                             Key = "FacebookFollowerCount",
                             Value = "100"
@@ -499,7 +536,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9624),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8066),
                             IsDeleted = false,
                             Key = "InstagramFollowerCount",
                             Value = "100"
@@ -507,7 +544,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9625),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8067),
                             IsDeleted = false,
                             Key = "TwitterFollowerCount",
                             Value = "100"
@@ -515,7 +552,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9626),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8068),
                             IsDeleted = false,
                             Key = "LinkedInFollowerCount",
                             Value = "100"
@@ -523,7 +560,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9628),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8069),
                             IsDeleted = false,
                             Key = "Adress",
                             Value = "Example Adress"
@@ -531,7 +568,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9629),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8070),
                             IsDeleted = false,
                             Key = "Gmail",
                             Value = "example@gmail.com"
@@ -539,7 +576,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9631),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8071),
                             IsDeleted = false,
                             Key = "Phone",
                             Value = "012 000 00 00"
@@ -547,7 +584,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9632),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8072),
                             IsDeleted = false,
                             Key = "Fax",
                             Value = "012 000 00 00"
@@ -555,7 +592,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9633),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8073),
                             IsDeleted = false,
                             Key = "Name",
                             Value = "Company Name"
@@ -563,7 +600,7 @@ namespace SIS.Persistance.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedDate = new DateTime(2023, 2, 26, 8, 36, 14, 132, DateTimeKind.Utc).AddTicks(9635),
+                            CreatedDate = new DateTime(2023, 3, 1, 5, 0, 47, 302, DateTimeKind.Utc).AddTicks(8074),
                             IsDeleted = false,
                             Key = "Logo",
                             Value = "~/assets/img/logo.png"
@@ -714,6 +751,25 @@ namespace SIS.Persistance.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.HasDiscriminator().HasValue("AppUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "000a2387-747a-4b07-9051-120d503e954a",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "aec1e4e4-ad9d-4056-845a-16e0aa3b4f16",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "RUFETTALIB",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "7334cbab-8ceb-49af-a99d-4b8aedb9abdd",
+                            TwoFactorEnabled = false,
+                            UserName = "rufettalib",
+                            FirstName = "Rufat",
+                            IdentityRoleName = "SuperAdmin",
+                            IsDeleted = false,
+                            LastName = "Talib"
+                        });
                 });
 
             modelBuilder.Entity("SIS.Domain.Entities.LessonEvent", b =>

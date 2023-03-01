@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SIS.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -47,10 +48,47 @@ namespace SIS.Persistance
 				NewSetting("Phone", "012 000 00 00"),
 				NewSetting("Fax", "012 000 00 00"),
 				NewSetting("Name", "Company Name"),
-				NewSetting("Logo","~/assets/img/logo.png")
+				NewSetting("Logo", "~/assets/img/logo.png")
 				);
 
+			_modelBuilder.Entity<AppUser>().HasData(
+				new AppUser()
+				{
+					Id = Guid.NewGuid().ToString(),
+					FirstName = "Rufat",
+					LastName = "Talib",
+					UserName = "rufettalib",
+					NormalizedUserName = "RUFETTALIB",
+					IdentityRoleName = "SuperAdmin"
+				}
+				);
 
+			_modelBuilder.Entity<IdentityRole>().HasData(
+				new IdentityRole()
+				{
+					Id = Guid.NewGuid().ToString(),
+					Name = "SuperAdmin",
+					NormalizedName = "SUPERADMIN"
+				},
+				new IdentityRole()
+				{
+					Id = Guid.NewGuid().ToString(),
+					Name = "Admin",
+					NormalizedName = "ADMIN"
+				},
+				new IdentityRole()
+				{
+					Id = Guid.NewGuid().ToString(),
+					Name = "Student",
+					NormalizedName = "STUDENT"
+				},
+				new IdentityRole()
+				{
+					Id = Guid.NewGuid().ToString(),
+					Name = "Teacher",
+					NormalizedName = "TEACHER"
+				}
+				);
 
 
 		}

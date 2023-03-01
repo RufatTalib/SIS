@@ -40,38 +40,34 @@ namespace SIS.MVC.Controllers
 			_groupReadRepository = groupReadRepository;
 		}
 
-        /*public async Task<IActionResult> CreateRoles()
-        {
-            await _roleManager.CreateAsync(new() {Name="Admin"});
-			await _roleManager.CreateAsync(new() { Name = "Student" });
-			await _roleManager.CreateAsync(new() { Name = "Teacher" });
-
-            return Content("Finished.");
-		}*/
-
-		/*public async Task<IActionResult> Setup()
-        {
-            await _roleManager.CreateAsync(new() { Name = "SuperAdmin" });
-
-            AppUser user = new()
-            {
-                UserName = "Admin123",
-                FirstName = "Super",
-                LastName = "Admin"
-            };
-
-            await _userManager.CreateAsync(user, "Admin123");
-
-            await _userManager.AddToRoleAsync(user, "SuperAdmin");
-
-            return Ok("<h2>Setup finished.</h2>");
-        }
-*/
 
 		[HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            // Check seed data
+            AppUser superadmin = await _userManager.FindByNameAsync("rufettalib");
+
+			if (superadmin != null)
+            {
+                IList<string> user_roles = await _userManager.GetRolesAsync(superadmin);
+
+                if (user_roles.Contains("SuperAdmin"))
+                    return View();
+                
+                var result = await _userManager.AddToRoleAsync(superadmin, "SuperAdmin");
+
+                if(! result.Succeeded)
+                    return View(nameof(ErrorPage));
+			}
+            else
+                return View(nameof(ErrorPage));
+                
             
+            return View();
+        }
+
+        public IActionResult ErrorPage()
+        {
             return View();
         }
 
