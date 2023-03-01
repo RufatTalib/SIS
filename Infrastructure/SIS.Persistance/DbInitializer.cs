@@ -51,18 +51,6 @@ namespace SIS.Persistance
 				NewSetting("Logo", "~/assets/img/logo.png")
 				);
 
-			_modelBuilder.Entity<AppUser>().HasData(
-				new AppUser()
-				{
-					Id = Guid.NewGuid().ToString(),
-					FirstName = "Rufat",
-					LastName = "Talib",
-					UserName = "rufettalib",
-					NormalizedUserName = "RUFETTALIB",
-					IdentityRoleName = "SuperAdmin"
-				}
-				);
-
 			_modelBuilder.Entity<IdentityRole>().HasData(
 				new IdentityRole()
 				{

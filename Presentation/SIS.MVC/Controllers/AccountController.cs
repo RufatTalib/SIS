@@ -47,22 +47,24 @@ namespace SIS.MVC.Controllers
             // Check seed data
             AppUser superadmin = await _userManager.FindByNameAsync("rufettalib");
 
-			if (superadmin != null)
+            if(superadmin == null)
             {
-                IList<string> user_roles = await _userManager.GetRolesAsync(superadmin);
+                superadmin = new()
+                {
+                    UserName = "RufetTalib",
+                    FirstName = "Rufet",
+                    LastName = "Talibzada",
+                    IdentityRoleName = "SuperAdmin"
+                };
 
-                if (user_roles.Contains("SuperAdmin"))
-                    return View();
-                
-                var result = await _userManager.AddToRoleAsync(superadmin, "SuperAdmin");
+                var res = await _userManager.CreateAsync(superadmin, "Rufet123");
+                if(!res.Succeeded) return View(nameof(ErrorPage));
+				res = await _userManager.AddToRoleAsync(superadmin, "SuperAdmin");
+				if (!res.Succeeded) return View(nameof(ErrorPage));
 
-                if(! result.Succeeded)
-                    return View(nameof(ErrorPage));
-			}
-            else
-                return View(nameof(ErrorPage));
-                
-            
+				return View();
+            }
+
             return View();
         }
 
