@@ -56,6 +56,11 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			return View(await _mediator.Send(request));
 		}
 
+		public IActionResult ErrorPage()
+		{
+			return View();
+		}
+
 		public IActionResult Create()
 		{
 			ViewDataConfig("Add New", "Teacher", "Create");
@@ -106,7 +111,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 			var response = await _mediator.Send(request);
 
-			if (response.Teacher is null) return NotFound();
+			if (response.Teacher is null) return View(nameof(ErrorPage));
 
 			UpdateTeacherCommandRequest teacher = new UpdateTeacherCommandRequest()
 			{

@@ -66,14 +66,17 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 			return RedirectToAction("index");
 		}
-
+		public IActionResult ErrorPage()
+		{
+			return View();
+		}
 		public async Task<IActionResult> Update(GetByIdSubjectQueryRequest request)
 		{
 			ViewDataConfig("Edit Subject", "Subject", "Update");
 
 			var response = await _mediator.Send(request);
 
-			if (response.Subject is null) return NotFound();
+			if (response.Subject is null) return View(nameof(ErrorPage));
 
 			return View(new UpdateSubjectCommandRequest() { Id = response.Subject.Id, Name = response.Subject.Name});
 		}

@@ -96,11 +96,11 @@ namespace SIS.MVC.Controllers
 
         public async Task<IActionResult> ChangePassword()
         {
-			if (!User.Identity.IsAuthenticated) return NotFound();
+			if (!User.Identity.IsAuthenticated) return View(nameof(ErrorPage));
 
 			AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-			if (user == null) return NotFound();
+			if (user == null) return View(nameof(ErrorPage));
 
 			UserPasswordUpdateCommandRequest request = new()
 			{
@@ -132,11 +132,11 @@ namespace SIS.MVC.Controllers
 
         public async Task<IActionResult> MyProfile()
         {
-            if (!User.Identity.IsAuthenticated) return NotFound();
+            if (!User.Identity.IsAuthenticated) return View(nameof(ErrorPage));
 
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            if (user == null) return NotFound();
+            if (user == null) return View(nameof(ErrorPage));
 
             UpdateUserCommandRequest request = new()
             {

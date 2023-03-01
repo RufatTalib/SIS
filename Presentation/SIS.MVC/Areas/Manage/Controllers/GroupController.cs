@@ -43,9 +43,14 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 			var response = await _mediator.Send(request);
 
-			if (response.Group is null) return NotFound();
+			if (response.Group is null) return View(nameof(ErrorPage));
 
 			return View(response.Group);
+		}
+
+		public IActionResult ErrorPage()
+		{
+			return View();
 		}
 
 		public IActionResult Create()
@@ -79,7 +84,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 			var response = await _mediator.Send(request);
 
-			if (response.Group is null) return NotFound();
+			if (response.Group is null) return View(nameof(ErrorPage));
 
 			return View(new UpdateGroupCommandRequest() { Id = response.Group.Id, Name = response.Group.Name });
 		}

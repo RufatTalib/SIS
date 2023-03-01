@@ -79,6 +79,11 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			return RedirectToAction("index");
 		}
 
+		public IActionResult ErrorPage()
+		{
+			return View();
+		}
+
 		public async Task<IActionResult> Update(GetByIdUpdateStudentQueryRequest request)
 		{
 			ViewDataConfig("Edit Student", "Student", "Edit");
@@ -89,7 +94,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			var response = await _mediator.Send(request);
 
 			if (response.Request is null)
-				return NotFound();
+				return View(nameof(ErrorPage));
 
 
 			

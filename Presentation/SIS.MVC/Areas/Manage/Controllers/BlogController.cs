@@ -74,15 +74,20 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
 			var response = await _mediator.Send(request);
 
-            if (response.Blog is null) return NotFound();
+            if (response.Blog is null) return View(nameof(ErrorPage));
 
-            return View(new UpdateBlogCommandRequest() 
+			return View(new UpdateBlogCommandRequest() 
             { 
                 BlogId = response.Blog.Id, 
                 Title = response.Blog.Title,
                 Description = response.Blog.Description
             }
             );
+        }
+        
+        public IActionResult ErrorPage()
+        {
+            return View();
         }
 
         [HttpPost]

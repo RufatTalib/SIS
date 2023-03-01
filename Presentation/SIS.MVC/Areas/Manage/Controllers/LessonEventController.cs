@@ -62,6 +62,11 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			return View();
 		}
 
+		public IActionResult ErrorPage()
+		{
+			return View();
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateLessonEventCommandRequest request)
 		{
@@ -88,7 +93,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 			ViewDataConfig("Edit Lesson Event", "Lesson Event", "Update");
 			var response = await _mediator.Send(request);
 
-			if (response.LessonEvent is null) return NotFound();
+			if (response.LessonEvent is null) return View(nameof(ErrorPage));
 
 			ViewData["Groups"] = _groupReadRepository.GetWhere(x => x.IsDeleted == false).ToList();
 			ViewData["Subjects"] = _subjectReadRepository.GetWhere(x => x.IsDeleted == false).ToList();

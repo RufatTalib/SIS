@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\ProfilePhotos\\25a52578-864a-4e2b-9d58-8039eeb8a55cavatar-05.jpg",
+      "PackagePath": "staticwebassets\\ProfilePhotos\\25a52578-864a-4e2b-9d58-8039eeb8a55cavatar-05.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\css\\bootstrap-datetimepicker.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\bootstrap-datetimepicker.min.css"
     },

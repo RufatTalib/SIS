@@ -85,7 +85,7 @@ namespace SIS.MVC.Areas.Manage.Controllers
 
             user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
 
-            if (user == null) return NotFound();
+            if (user == null) return View(nameof(ErrorPage));
 
             UpdateAdminCommandRequest request = new()
             {
@@ -103,7 +103,13 @@ namespace SIS.MVC.Areas.Manage.Controllers
             return View(request);
         }
 
-        [HttpPost]
+		public IActionResult ErrorPage()
+		{
+			return View();
+		}
+
+
+		[HttpPost]
         public async Task<IActionResult> Update(UpdateAdminCommandRequest request)
         {
 			ViewDataConfig("Edit Admin", "Admin", "Update");
@@ -127,13 +133,13 @@ namespace SIS.MVC.Areas.Manage.Controllers
         {
 			AppUser user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id && (x.IsDeleted == false || x.IsDeleted == null));
 
-            if(user is null) return NotFound();
+            if(user is null) return View(nameof(ErrorPage));
 
             user.IsDeleted = true;
             IdentityResult response = await _userManager.UpdateAsync(user);
 
             if (!response.Succeeded)
-                return BadRequest();
+				return View(nameof(ErrorPage));
 
 			return Ok();
         }

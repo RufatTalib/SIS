@@ -70,13 +70,18 @@ namespace SIS.MVC.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
+        public IActionResult ErrorPage()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Update(int id)
         {
 			ViewDataConfig("Edit Department", "Department", "Update");
 			Department department = await _departmentReadRepository.FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted == false);
 
             if (department is null)
-                return NotFound();
+                return View(nameof(ErrorPage));
 
 
             UpdateDepartmentCommandRequest request = new()
@@ -111,14 +116,14 @@ namespace SIS.MVC.Areas.Manage.Controllers
         {
 			Department department = await _departmentReadRepository.GetByIdAsync(id);
 
-			if (department is null) return NotFound();
+			if (department is null) return View(nameof(ErrorPage));
 
 			department.IsDeleted = true;
 
 			if (!_departmentWriteRepository.Update(department))
-				return BadRequest();
+				return View(nameof(ErrorPage));
 
-            _departmentWriteRepository.Save();
+			_departmentWriteRepository.Save();
 
 			return Ok();
 		}
