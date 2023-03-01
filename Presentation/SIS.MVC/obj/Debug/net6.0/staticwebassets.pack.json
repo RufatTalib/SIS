@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\ProfilePhotos\\25a52578-864a-4e2b-9d58-8039eeb8a55cavatar-05.jpg"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\57bfac72-0ce3-4a88-a158-acaa15d8d4dfimg-02.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\57bfac72-0ce3-4a88-a158-acaa15d8d4dfimg-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\c7802bf9-a3b6-42ec-87f8-31f7caeed3faimg-2.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\c7802bf9-a3b6-42ec-87f8-31f7caeed3faimg-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\SliderPhotos\\ff92a87b-eade-4605-a354-dede2517fe99img-1.jpg",
+      "PackagePath": "staticwebassets\\SliderPhotos\\ff92a87b-eade-4605-a354-dede2517fe99img-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\SIS\\Presentation\\SIS.MVC\\wwwroot\\assets\\css\\bootstrap-datetimepicker.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\bootstrap-datetimepicker.min.css"
     },

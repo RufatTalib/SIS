@@ -2,28 +2,37 @@
 @model List<Slider>
 
 @foreach (Slider model in Model)
-	{
-		<div id="carouselExampleCaption" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner" role="listbox">
-				<div class="carousel-caption d-none d-md-block">
+{
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+				<div id="carouselExampleCaption" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+
+
+						@for (int i = 0; i < model.Images.Count; i++)
+						{
+							<div class="carousel-item @(i == 0 ? "active":"")" style="height:fit-content;">
+								<img src="~/SliderPhotos/@(model.Images[i].ImageSrc)" alt="..." class="d-block img-fluid" style="width:100%">
+							</div>
+						}
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleCaption" role="button" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleCaption" role="button" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</a>
+				</div>
+			</div>
+			<div class="card-text" style="text-align:center">
+				<div class="d-none d-md-block">
 					<h3 class="text-dark">@(model.Title)</h3>
 					<p class="text-dark">@(model.Caption)</p>
 				</div>
-
-				@for (int i = 0; i < model.Images.Count; i++)
-				{
-				<div class="carousel-item @(i == 0 ? "active":"")" style="height:fit-content;">
-					<img src="~/SliderPhotos/@(model.Images[i].ImageSrc)" alt="..." class="d-block img-fluid">
-					</div>
-				}
 			</div>
-			<a class="carousel-control-prev" href="#carouselExampleCaption" role="button" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleCaption" role="button" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</a>
 		</div>
-	}
+	</div>
+}
